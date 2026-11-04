@@ -48,6 +48,10 @@ h2 { font-size:1.35rem; margin:0; color:var(--ink); line-height:1.4; }
 .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 .shots { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
 .shots img { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:2px; }
+.yt { margin:6px 0 0; text-align:right; font-size:.9rem; }
+.yt a { color:var(--ink); }
+footer a { color:var(--ink); }
+footer p { margin:0 0 6px; }
 footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); font-size:.9rem; }
 @media (max-width:760px) {
   .sample { grid-template-columns:1fr; }
@@ -74,7 +78,10 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <table class="ba"><tr><th scope="row">作業前</th><td>電話・メールで1件20分。返事は翌日</td></tr><tr><th scope="row">作業後</th><td>スマホで選ぶと、その場で金額の幅が出る。現地調査の申し込みも画面から</td></tr></table>
     <p class="effect">年約40時間・約8万円分<small>年間の削減（試算）</small></p>
   </div>
-  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/95yeq0WnwA8" title="見本01 概算見積（WEB）" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/95yeq0WnwA8?rel=0" title="見本01 概算見積（WEB）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/95yeq0WnwA8" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
   <div class="shots"><img src="images/01-1.png" alt="お客さんがスマホで選ぶと、金額の幅（税込）が出る" loading="lazy"><img src="images/01-2.png" alt="申し込みが受付に入り、営業にメールが届く" loading="lazy"></div>
 </section>
 <section class="sample" id="s02" aria-labelledby="h02">
@@ -84,7 +91,10 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <table class="ba"><tr><th scope="row">作業前</th><td>メールや紙から転記して、手で連絡。漏れや二重登録がある</td></tr><tr><th scope="row">作業後</th><td>台帳に自動で1行入り、担当者に通知。お客さんに自動返信</td></tr></table>
     <p class="effect">年約22時間・約4.4万円分<small>年間の削減（試算）</small></p>
   </div>
-  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VqnUljA0n3E" title="見本02 お問い合わせの記録と通知" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/VqnUljA0n3E?rel=0" title="見本02 お問い合わせの記録と通知" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
   <div class="shots"><img src="images/02-1.png" alt="WEB のフォームから送ると、台帳の「受付」に1行入る" loading="lazy"><img src="images/02-2.png" alt="営業の担当者に通知のメールが届く" loading="lazy"></div>
 </section>
 <section class="sample" id="s03" aria-labelledby="h03">
@@ -94,7 +104,10 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <table class="ba"><tr><th scope="row">作業前</th><td>前の Excel をコピーして打ち直し。1件45分</td></tr><tr><th scope="row">作業後</th><td>品目を選び、合計・版は自動。1件15分</td></tr></table>
     <p class="effect">年約90時間・約18万円分<small>年間の削減（試算）</small></p>
   </div>
-  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/_-2qiz1TLeg" title="見本03 正式な見積書" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/_-2qiz1TLeg?rel=0" title="見本03 正式な見積書" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
   <div class="shots"><img src="images/03-1.png" alt="品目を選んで数量を入れる「見積の入力」" loading="lazy"><img src="images/03-2.png" alt="見積書の PDF（番号は現場番号と版）" loading="lazy"></div>
 </section>
 <section class="sample" id="s04" aria-labelledby="h04">
@@ -104,7 +117,10 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <table class="ba"><tr><th scope="row">作業前</th><td>夕方に1人ずつ電話。工程表は Excel で作り直して印刷</td></tr><tr><th scope="row">作業後</th><td>カレンダーに反映すると、前日にメールが自動で届く。工程表は PDF に</td></tr></table>
     <p class="effect">年約48時間・約9.6万円分<small>年間の削減（試算）</small></p>
   </div>
-  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/U8hm_w8dHZQ" title="見本04 工程表とカレンダー" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/U8hm_w8dHZQ?rel=0" title="見本04 工程表とカレンダー" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
   <div class="shots"><img src="images/04-1.png" alt="「予定」を1行入れてカレンダーに反映する" loading="lazy"><img src="images/04-2.png" alt="3か月の工程表（現場ごとの帯）" loading="lazy"></div>
 </section>
 <section class="sample" id="s05" aria-labelledby="h05">
@@ -114,10 +130,14 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <table class="ba"><tr><th scope="row">作業前</th><td>LINE の写真を保存し、現場のフォルダに振り分け。報告書は Word で作る</td></tr><tr><th scope="row">作業後</th><td>送るだけで現場のフォルダに入る。報告書は印を付けて1通5分</td></tr></table>
     <p class="effect">年約110時間・約22万円分<small>年間の削減（試算）</small></p>
   </div>
-  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/v-evSr0hZZM" title="見本05 現場の写真と書類" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/v-evSr0hZZM?rel=0" title="見本05 現場の写真と書類" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
   <div class="shots"><img src="images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" loading="lazy"><img src="images/05-2.png" alt="送った写真が現場のフォルダに入る" loading="lazy"></div>
 </section>
-<footer>しくみ工房　｜　ご相談は、ランサーズ・クラウドワークス・ココナラのメッセージからお願いします。</footer>
+<footer><p>しくみ工房　｜　ご相談は、ランサーズまたはココナラのメッセージからお願いします。</p>
+<p><a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube チャンネル</a></p></footer>
 </div>
 </body>
 </html>
