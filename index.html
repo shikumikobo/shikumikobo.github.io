@@ -70,7 +70,23 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
 <div class="wrap">
 <img class="banner" src="images/banner.png" alt="しくみ工房　手作業を、自動で回る仕組みに　Google スプレッドシート ＋ WEB アプリ開発" width="2560" height="840">
 <header><img src="images/icon.png" alt="しくみ工房"><div><h1>しくみ工房　実績</h1><p class="sub">スプレッドシートの手作業を、自動で回る仕組みに</p></div></header>
-<p class="intro">従業員10人ほどの工務店を例に、問い合わせから見積・現場まで、5つの仕組みを作りました。どれも Google のスプレッドシートと Apps Script で動き、新しいソフトを入れる必要はありません。動画は1〜2分で、実際の画面の録画です。このほか、WEB アプリの見本（ブラウザで試せます）を1つ、下に載せています。</p>
+
+<h2 class="web-h">WEB アプリの見本</h2>
+<section class="sample" id="sW01" aria-labelledby="hW01">
+  <div class="s-head"><span class="no">W01</span><h2 id="hW01">現場管理アプリ（WEB アプリ）</h2></div>
+  <div>
+    <p class="lead">入る人によって見える範囲が変わる、現場管理の WEB アプリです。お客さんには進み具合だけの専用ページを用意できます</p>
+    <table class="ba"><tr><th scope="row">作業前</th><td>シートごと共有すると、金額も社内のメモも見えてしまう</td></tr><tr><th scope="row">作業後</th><td>社長・社員・職人・お客さんで見える範囲を分ける。職人は担当の現場だけ、金額は見えない</td></tr></table>
+    <p class="effect">スマホにインストールできる・権限はデータベース側でも守る（テストつき）</p>
+    <p class="yt" style="text-align:left"><a href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener"><b>ブラウザで試す（パスワードなし・架空のデータ）</b></a></p>
+  </div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/bEkK9iGIro0?rel=0" title="WEB 見本 現場管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/bEkK9iGIro0" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
+  <div class="shots"><img src="images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" loading="lazy"><img src="images/W01-2.png" alt="社長の画面（現場の一覧。職人で入ると担当の現場だけ）" loading="lazy"></div>
+</section>
+<p class="intro">スプレッドシートの見本は、従業員10人ほどの工務店を例に、問い合わせから見積・現場まで、5つの仕組みを作りました。どれも Google のスプレッドシートと Apps Script で動き、新しいソフトを入れる必要はありません。動画は1〜2分で、実際の画面の録画です。</p>
 <p class="note">データはすべて架空です。削減時間は、月の件数と1件あたりの時間を仮に置いた試算で、時給2,000円で換算しています。お客さんの実際の数字で計算し直します。</p>
 <nav class="gantt" aria-label="見本の一覧"><div class="g-head"><span>問い合わせの前</span><span>受付</span><span>見積</span><span>工事</span></div><div class="g-row"><a class="c1" href="#s01"><b>01</b>概算見積（WEB）</a></div><div class="g-row"><a class="c2" href="#s02"><b>02</b>問い合わせの記録と通知</a></div><div class="g-row"><a class="c3" href="#s03"><b>03</b>正式な見積書</a></div><div class="g-row"><a class="c4" href="#s04"><b>04</b>工程表とカレンダー</a></div><div class="g-row"><a class="c4" href="#s05"><b>05</b>現場の写真と書類</a></div></nav>
 
@@ -138,22 +154,6 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <p class="yt"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">YouTube で開く</a></p>
   </div>
   <div class="shots"><img src="images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" loading="lazy"><img src="images/05-2.png" alt="送った写真が現場のフォルダに入る" loading="lazy"></div>
-</section>
-
-<h2 class="web-h">WEB アプリの見本</h2>
-<section class="sample" id="sW01" aria-labelledby="hW01">
-  <div class="s-head"><span class="no">W01</span><h2 id="hW01">現場管理アプリ（WEB アプリ）</h2></div>
-  <div>
-    <p class="lead">入る人によって見える範囲が変わる、現場管理の WEB アプリです。お客さんには進み具合だけの専用ページを用意できます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>シートごと共有すると、金額も社内のメモも見えてしまう</td></tr><tr><th scope="row">作業後</th><td>社長・社員・職人・お客さんで見える範囲を分ける。職人は担当の現場だけ、金額は見えない</td></tr></table>
-    <p class="effect">スマホにインストールできる・権限はデータベース側でも守る（テストつき）</p>
-    <p class="yt" style="text-align:left"><a href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener"><b>ブラウザで試す（パスワードなし・架空のデータ）</b></a></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/bEkK9iGIro0?rel=0" title="WEB 見本 現場管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/bEkK9iGIro0" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" loading="lazy"><img src="images/W01-2.png" alt="社長の画面（現場の一覧。職人で入ると担当の現場だけ）" loading="lazy"></div>
 </section>
 <footer><p>しくみ工房　｜　ご相談は、ランサーズまたはココナラのメッセージからお願いします。</p>
 <p><a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube チャンネル</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></p></footer>
