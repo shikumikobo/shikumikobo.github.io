@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>しくみ工房 実績</title>
-<meta name="description" content="Google スプレッドシートと Apps Script で、小さな会社の手作業を自動化。スプレッドシートの見本5つと WEB アプリの見本1つを、動画つきで紹介します。">
+<meta name="description" content="Google スプレッドシートと Apps Script で、小さな会社の手作業を自動化。スプレッドシートの見本6つと WEB アプリの見本1つを、動画つきで紹介します。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
 :root { --paper:#F3F5F7; --card:#FFFFFF; --ink:#1F3A5F; --text:#22262B; --sub:#55606C; --line:#BFC9D4; --bar:#1F3A5F; --bar-text:#FFFFFF; --accent:#B45F0C; --tint:#E3E9F0; }
@@ -25,16 +25,17 @@ h1 { font-size:1.6rem; margin:0; color:var(--ink); line-height:1.35; }
 .note { max-width:44em; color:var(--sub); font-size:.9rem; margin:0 0 28px; }
 /* 工程表 */
 .gantt { border-top:2px solid var(--ink); border-bottom:1px solid var(--line); margin:0 0 48px; }
-.g-head, .g-row { display:grid; grid-template-columns:repeat(4,1fr); }
+.g-head, .g-row { display:grid; grid-template-columns:repeat(5,1fr); }
 .g-head span { padding:8px 10px; font-size:.85rem; color:var(--sub); border-left:1px solid var(--line); }
 .g-head span:first-child { border-left:0; }
 .g-row { position:relative; padding:5px 0; }
 .g-row a { display:block; white-space:nowrap; margin:0 4px; padding:7px 12px; background:var(--bar); color:var(--bar-text); text-decoration:none; font-size:.95rem; line-height:1.4; border-radius:2px; }
 .g-row a:hover { text-decoration:underline; }
 .g-row a b { font-weight:700; margin-right:.5em; }
-.g-row .c1 { grid-column:1; } .g-row .c2 { grid-column:2; } .g-row .c3 { grid-column:3; } .g-row .c4 { grid-column:4; }
+.g-row .c1 { grid-column:1; } .g-row .c2 { grid-column:2; } .g-row .c3 { grid-column:3; } .g-row .c4 { grid-column:4; } .g-row .c5 { grid-column:5; }
 /* 各見本 */
 .sample { border-top:2px solid var(--ink); padding:20px 0 44px; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:8px 32px; scroll-margin-top:12px; }
+.sample.novideo { grid-template-columns:minmax(0,1fr); }
 .s-head { grid-column:1 / -1; display:flex; align-items:baseline; gap:14px; margin-bottom:6px; }
 .s-head .no { font-size:1.1rem; font-variant-numeric:tabular-nums; color:var(--sub); }
 h2 { font-size:1.35rem; margin:0; color:var(--ink); line-height:1.4; }
@@ -88,9 +89,9 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
   <div class="shots"><img src="images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" loading="lazy"><img src="images/W01-2.png" alt="社長の画面（現場の一覧。職人で入ると担当の現場だけ）" loading="lazy"></div>
 </section>
 <h2 class="web-h sheet-h">スプレッドシートの見本</h2>
-<p class="intro">従業員10人ほどの工務店を例に、問い合わせから見積・現場まで、5つの仕組みを作りました。どれも Google のスプレッドシートと Apps Script で動き、新しいソフトを入れる必要はありません。動画は1〜2分で、実際の画面の録画です。</p>
+<p class="intro">従業員10人ほどの工務店を例に、問い合わせから見積・現場まで、6つの仕組みを作りました。どれも Google のスプレッドシートと Apps Script で動き、新しいソフトを入れる必要はありません。動画は1〜2分で、実際の画面で紹介しています。</p>
 <p class="note">データはすべて架空です。削減時間は、月の件数と1件あたりの時間を仮に置いた試算で、時給2,000円で換算しています。お客さんの実際の数字で計算し直します。</p>
-<nav class="gantt" aria-label="見本の一覧"><div class="g-head"><span>問い合わせの前</span><span>受付</span><span>見積</span><span>工事</span></div><div class="g-row"><a class="c1" href="#s01"><b>01</b>概算見積（WEB）</a></div><div class="g-row"><a class="c2" href="#s02"><b>02</b>問い合わせの記録と通知</a></div><div class="g-row"><a class="c3" href="#s03"><b>03</b>正式な見積書</a></div><div class="g-row"><a class="c4" href="#s04"><b>04</b>工程表とカレンダー</a></div><div class="g-row"><a class="c4" href="#s05"><b>05</b>現場の写真と書類</a></div></nav>
+<nav class="gantt" aria-label="見本の一覧"><div class="g-head"><span>問い合わせの前</span><span>受付</span><span>見積</span><span>工事</span><span>請求</span></div><div class="g-row"><a class="c1" href="#s01"><b>01</b>概算見積（WEB）</a></div><div class="g-row"><a class="c2" href="#s02"><b>02</b>問い合わせの記録と通知</a></div><div class="g-row"><a class="c3" href="#s03"><b>03</b>正式な見積書</a></div><div class="g-row"><a class="c4" href="#s04"><b>04</b>工程表とカレンダー</a></div><div class="g-row"><a class="c4" href="#s05"><b>05</b>現場の写真と書類</a></div><div class="g-row"><a class="c5" href="#s07"><b>07</b>請求書の自動作成</a></div></nav>
 
 <section class="sample" id="s01" aria-labelledby="h01">
   <div class="s-head"><span class="no">01</span><h2 id="h01">概算見積（WEB）</h2></div>
@@ -156,6 +157,19 @@ footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); fo
     <p class="yt"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">YouTube で開く</a></p>
   </div>
   <div class="shots"><img src="images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" loading="lazy"><img src="images/05-2.png" alt="送った写真が現場のフォルダに入る" loading="lazy"></div>
+</section>
+<section class="sample" id="s07" aria-labelledby="h07">
+  <div class="s-head"><span class="no">07</span><h2 id="h07">請求書の自動作成</h2></div>
+  <div>
+    <p class="lead">月末の請求書を、ボタン1つで。その月の売上を顧客ごとにまとめ、請求書の PDF とメールの下書きを作ります</p>
+    <table class="ba"><tr><th scope="row">作業前</th><td>売上の表から金額を拾い、請求書を手で作って PDF にし、メールを書く。月3時間</td></tr><tr><th scope="row">作業後</th><td>顧客ごとの請求書の PDF とメールの下書きができる。確認して送るだけ（5分）。請求した売上には番号が付き、二重の請求にならない</td></tr></table>
+    <p class="effect">年約35時間・約7万円分<small>年間の削減（試算）</small></p>
+  </div>
+  <div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/rY_ovs0BVUg?rel=0" title="見本07 請求書の自動作成" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <p class="yt"><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">YouTube で開く</a></p>
+  </div>
+  <div class="shots"><img src="images/07-1.png" alt="対象の売上を顧客ごとにまとめた確認の画面" loading="lazy"><img src="images/07-2.png" alt="請求書の PDF（税率ごとの合計つき）" loading="lazy"></div>
 </section>
 <footer><p>しくみ工房　｜　ご相談は、ランサーズまたはココナラのメッセージからお願いします。</p>
 <p><a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube チャンネル</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></p></footer>
