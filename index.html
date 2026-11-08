@@ -3,206 +3,354 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>しくみ工房 実績</title>
-<meta name="description" content="Google スプレッドシートと Apps Script で、小さな会社の手作業を自動化。スプレッドシートの見本6つと WEB アプリの見本2つ、Excel の見本1つを、動画つきで紹介します。">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<title>しくみ工房｜手作業を、自動で回る仕組みに</title>
+<meta name="description" content="予約・現場・顧客の管理を、スマホでも使える WEB アプリに。小さな会社の繰り返しの作業を自動化します。ブラウザで試せる WEB アプリ2つと、動画つきの見本9つを紹介します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shikumikobo.com/">
+<meta property="og:title" content="しくみ工房｜手作業を、自動で回る仕組みに">
+<meta property="og:description" content="予約・現場・顧客の管理を、スマホでも使える WEB アプリに。小さな会社の繰り返しの作業を自動化します。ブラウザで試せる WEB アプリ2つと、動画つきの見本9つを紹介します。">
+<meta property="og:image" content="https://shikumikobo.com/images/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap">
 <style>
-:root { --paper:#F3F5F7; --card:#FFFFFF; --ink:#1F3A5F; --text:#22262B; --sub:#55606C; --line:#BFC9D4; --bar:#1F3A5F; --bar-text:#FFFFFF; --accent:#B45F0C; --tint:#E3E9F0; }
-@media (prefers-color-scheme: dark) { :root { --paper:#14181D; --card:#1B2027; --ink:#A9C2E3; --text:#E8EAED; --sub:#9AA5B1; --line:#36404B; --bar:#A9C2E3; --bar-text:#14181D; --accent:#F0A25A; --tint:#232B35; } }
+:root {
+  --paper:#F3F5F7; --card:#FFFFFF; --ink:#1F3A5F; --text:#22262B; --sub:#55606C; --line:#C9D2DC; --tint:#E3E9F0;
+  --accent:#B45F0C; --btn:#B45F0C; --btn-text:#FFFFFF;
+  --hero:#1F3A5F; --hero-text:#FFFFFF; --hero-sub:#C9D6E6; --grid:rgba(255,255,255,.07);
+  --bar:#1F3A5F; --bar-text:#FFFFFF;
+  --display:"Zen Kaku Gothic New","BIZ UDPGothic","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --paper:#14181D; --card:#1B2027; --ink:#A9C2E3; --text:#E8EAED; --sub:#9AA5B1; --line:#36404B; --tint:#222A33;
+  --accent:#F0A25A; --btn:#F0A25A; --btn-text:#14181D;
+  --hero:#172B45; --hero-text:#FFFFFF; --hero-sub:#B5C6DB; --grid:rgba(255,255,255,.06);
+  --bar:#A9C2E3; --bar-text:#14181D;
+} }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
-body { margin:0; background:var(--paper); color:var(--text); font-family:"BIZ UDPGothic","Yu Gothic","Meiryo",sans-serif; line-height:1.75; font-size:16px; }
+body { margin:0; background:var(--paper); color:var(--text); font-family:"BIZ UDPGothic","Yu Gothic","Meiryo",sans-serif; line-height:1.8; font-size:16px; }
 a { color:inherit; }
-a:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
-.wrap { max-width:960px; margin:0 auto; padding:0 16px 72px; }
-.banner { display:block; width:100%; height:auto; margin-top:16px; border-radius:2px; }
-header { display:flex; gap:16px; align-items:center; padding:36px 0 20px; }
-header img { width:56px; height:56px; border-radius:50%; flex:none; }
-h1 { font-size:1.6rem; margin:0; color:var(--ink); line-height:1.35; }
-.sub { color:var(--sub); margin:2px 0 0; }
-.intro { max-width:40em; margin:0 0 8px; }
-.note { max-width:44em; color:var(--sub); font-size:.9rem; margin:0 0 28px; }
+a:focus-visible, .btn:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.wrap { max-width:1040px; margin:0 auto; padding:0 16px 56px; }
+h1, h2, h3, .num, .effect b, .brand { font-family:var(--display); }
+h1, h2, h3, p, li { word-break:auto-phrase; }
+section[id], h2[id] { scroll-margin-top:16px; }
+
+/* ボタン */
+.btn { display:inline-block; padding:12px 22px; border-radius:4px; font-weight:700; text-decoration:none; line-height:1.4; border:2px solid transparent; }
+.btn.primary { background:var(--btn); color:var(--btn-text); }
+.btn.primary:hover { filter:brightness(1.08); }
+.btn.ghost { border-color:currentColor; }
+.btn.ghost:hover { background:rgba(255,255,255,.1); }
+.btn.small { padding:8px 16px; font-size:.95rem; }
+
+/* 上の帯 */
+.top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.15rem; color:var(--ink); text-decoration:none; }
+.brand img { width:36px; height:36px; border-radius:50%; }
+.top nav { display:flex; align-items:center; gap:20px; font-size:.95rem; }
+.top nav a:not(.btn) { color:var(--sub); text-decoration:none; }
+.top nav a:not(.btn):hover { color:var(--ink); text-decoration:underline; }
+
+/* 一番上：工房の方眼 */
+.hero, .cta { background-color:var(--hero); color:var(--hero-text); border-radius:6px;
+  background-image:linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:32px 32px; background-position:-1px -1px; }
+.hero { padding:72px 56px 56px; }
+.hero h1 { font-size:clamp(2.1rem, 5.6vw, 3.9rem); font-weight:900; line-height:1.22; letter-spacing:.02em; margin:0 0 24px; }
+.hero h1 span { display:block; }
+.hero p.lead { color:var(--hero-sub); font-size:1.1rem; max-width:33em; margin:0 0 32px; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; }
+.facts { list-style:none; display:flex; flex-wrap:wrap; gap:6px 28px; margin:40px 0 0; padding:20px 0 0; border-top:1px solid rgba(255,255,255,.22); color:var(--hero-sub); font-size:.92rem; }
+.facts b { color:var(--hero-text); font-family:var(--display); font-size:1.15rem; margin-right:.2em; }
+
+/* 見出し */
+.block { padding:72px 0 0; }
+.block > h2, .group-h { font-size:clamp(1.5rem, 3.4vw, 2rem); font-weight:700; color:var(--ink); line-height:1.4; margin:0 0 8px; }
+.block > p.intro { color:var(--sub); max-width:40em; margin:0 0 28px; }
+
+/* 今の作業の一覧 */
+.pains { list-style:none; margin:0; padding:0; border-top:2px solid var(--ink); }
+.pains a { display:grid; grid-template-columns:minmax(0,1fr) 15em 10.5em; gap:16px; align-items:baseline; padding:15px 12px; border-bottom:1px solid var(--line); text-decoration:none; }
+.pains a:hover { background:var(--card); }
+.pains .p { font-size:1.05rem; }
+.pains .s { color:var(--ink); font-weight:700; font-size:.95rem; }
+.pains .s small { font-weight:400; color:var(--sub); margin-right:.6em; font-variant-numeric:tabular-nums; }
+.pains .e { color:var(--accent); font-weight:700; font-size:.95rem; text-align:right; white-space:nowrap; }
+.pains .e.plain { color:var(--sub); font-weight:400; }
+.pains-head { display:grid; grid-template-columns:minmax(0,1fr) 15em 10.5em; gap:16px; padding:0 12px 8px; color:var(--sub); font-size:.85rem; }
+.pains-head span:last-child { text-align:right; }
+
+/* 3つの作り方 */
+.ways { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:32px; }
+.ways > div { border-top:4px solid var(--ink); padding-top:16px; }
+.ways h3 { font-size:1.2rem; color:var(--ink); margin:0 0 8px; line-height:1.45; }
+.ways p { margin:0 0 10px; }
+.ways .to { font-size:.92rem; color:var(--sub); }
+.ways .to a { color:var(--ink); }
+.ways-note { margin:24px 0 0; padding:14px 18px; background:var(--tint); border-radius:4px; }
+.ways .main { border-top-color:var(--accent); }
+.ways .main h3 { font-size:1.45rem; }
+.price { color:var(--accent); font-weight:700; font-family:var(--display); margin:0 0 8px !important; }
+
+/* 段階の道 */
+.road { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:0; position:relative; }
+.road li { position:relative; padding:56px 18px 0 0; }
+.road li::before { content:""; position:absolute; left:0; right:0; top:19px; height:4px; background:var(--line); }
+.road li:last-child::before { right:auto; width:40px; }
+.road li:nth-child(n+3)::before { background:var(--accent); }
+.road .num { position:absolute; left:0; top:0; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; background:var(--card); border:3px solid var(--ink); color:var(--ink); font-weight:900; font-size:1.15rem; z-index:1; }
+.road li:nth-child(n+3) .num { border-color:var(--accent); background:var(--accent); color:var(--btn-text); }
+.road h3 { margin:0 0 6px; color:var(--ink); font-size:1.15rem; line-height:1.45; }
+.road p { margin:0 0 8px; font-size:.95rem; }
+.road .to a { color:var(--ink); font-weight:700; }
+
+/* 小さく始める仕組み */
+.minis { list-style:none; margin:24px 0 0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
+.minis li { background:var(--card); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; scroll-margin-top:16px; }
+.minis img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; object-position:top; display:block; border-bottom:1px solid var(--line); }
+.m-body { padding:14px 16px 16px; display:flex; flex-direction:column; gap:4px; flex:1; }
+.m-body .no { color:var(--sub); font-size:.85rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.m-body h3 { margin:0; font-size:1.08rem; color:var(--ink); line-height:1.45; }
+.m-pain { margin:0; color:var(--sub); font-size:.9rem; }
+.m-eff { margin:auto 0 0; padding-top:6px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 10px; }
+.m-eff b { color:var(--accent); font-family:var(--display); }
+.m-go { margin:4px 0 0; font-size:.93rem; font-weight:700; }
+.m-go a { color:var(--ink); }
+
+/* LP の例 */
+.lps { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:18px; }
+.lps a { display:flex; flex-direction:column; height:100%; background:var(--card); border-radius:6px; overflow:hidden; text-decoration:none; border:1px solid var(--line); }
+.lps a:hover { border-color:var(--ink); }
+.lps img { width:100%; height:auto; display:block; border-bottom:1px solid var(--line); }
+.l-body { padding:12px 14px 16px; }
+.l-body b { display:block; color:var(--ink); font-family:var(--display); font-size:1.05rem; }
+.l-body span { display:block; color:var(--sub); font-size:.88rem; line-height:1.65; margin-top:4px; }
+
+/* 見本のまとまり */
+.group-h { margin:72px 0 4px; padding-bottom:12px; border-bottom:2px solid var(--ink); }
+.group-p { color:var(--sub); max-width:44em; margin:14px 0 0; }
+.group-note { color:var(--sub); font-size:.88rem; max-width:46em; margin:6px 0 24px; }
+
 /* 工程表 */
-.gantt { border-top:2px solid var(--ink); border-bottom:1px solid var(--line); margin:0 0 48px; }
+.gantt { border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:20px 0 8px; }
 .g-head, .g-row { display:grid; grid-template-columns:repeat(5,1fr); }
 .g-head span { padding:8px 10px; font-size:.85rem; color:var(--sub); border-left:1px solid var(--line); }
 .g-head span:first-child { border-left:0; }
 .g-row { position:relative; padding:5px 0; }
-.g-row a { display:block; white-space:nowrap; margin:0 4px; padding:7px 12px; background:var(--bar); color:var(--bar-text); text-decoration:none; font-size:.95rem; line-height:1.4; border-radius:2px; }
+.g-row a { display:block; white-space:nowrap; margin:0 4px; padding:7px 12px; background:var(--bar); color:var(--bar-text); text-decoration:none; font-size:.95rem; line-height:1.4; border-radius:3px; }
 .g-row a:hover { text-decoration:underline; }
 .g-row a b { font-weight:700; margin-right:.5em; }
 .g-row .c1 { grid-column:1; } .g-row .c2 { grid-column:2; } .g-row .c3 { grid-column:3; } .g-row .c4 { grid-column:4; } .g-row .c5 { grid-column:5; }
+
 /* 各見本 */
-.sample { border-top:2px solid var(--ink); padding:20px 0 44px; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:8px 32px; scroll-margin-top:12px; }
+.sample { padding:40px 0 48px; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:8px 40px; border-bottom:1px solid var(--line); }
 .sample.novideo { grid-template-columns:minmax(0,1fr); }
-.s-head { grid-column:1 / -1; display:flex; align-items:baseline; gap:14px; margin-bottom:6px; }
-.s-head .no { font-size:1.1rem; font-variant-numeric:tabular-nums; color:var(--sub); }
-h2 { font-size:1.35rem; margin:0; color:var(--ink); line-height:1.4; }
-.lead { margin:0 0 14px; }
-.ba { width:100%; border-collapse:collapse; font-size:.95rem; margin-bottom:14px; }
-.ba th { width:4.5em; text-align:left; vertical-align:top; padding:9px 10px 9px 0; border-top:1px solid var(--line); color:var(--sub); font-weight:400; }
-.ba td { padding:9px 0; border-top:1px solid var(--line); }
-.ba tr:last-child th, .ba tr:last-child td { border-bottom:1px solid var(--line); }
-.effect { margin:0; color:var(--accent); font-weight:700; }
-.effect small { display:block; font-weight:400; color:var(--sub); font-size:.85rem; }
-.video { position:relative; padding-top:56.25%; background:#000; border-radius:2px; overflow:hidden; }
+.s-head { grid-column:1 / -1; display:flex; align-items:baseline; gap:14px; margin-bottom:10px; }
+.s-head .no { font-size:1rem; font-variant-numeric:tabular-nums; color:var(--sub); font-weight:700; }
+.s-head h3 { font-size:1.45rem; margin:0; color:var(--ink); line-height:1.4; }
+.sample .lead { margin:0 0 18px; }
+.ba { display:grid; gap:8px; margin:0 0 20px; font-size:.95rem; }
+.ba > div { padding:10px 14px 11px; border-radius:4px; }
+.ba .before { background:var(--tint); }
+.ba .after { background:var(--card); border-left:4px solid var(--ink); }
+.ba b { display:block; font-size:.8rem; color:var(--sub); font-weight:700; margin-bottom:2px; }
+.ba .after b { color:var(--ink); }
+.effect { margin:0 0 4px; }
+.effect .row { display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; }
+.effect b { color:var(--accent); font-size:1.45rem; font-weight:700; line-height:1.35; }
+.effect small { display:block; color:var(--sub); font-size:.85rem; }
+.webok { display:inline-block; padding:1px 12px; border:1.5px solid var(--ink); border-radius:999px; color:var(--ink); font-size:.82rem; font-weight:700; line-height:1.7; text-decoration:none; white-space:nowrap; }
+.webok:hover { background:var(--tint); }
+.feature { margin:0 0 4px; padding-left:12px; border-left:3px solid var(--line); color:var(--sub); font-size:.95rem; }
+.try { margin:18px 0 0; }
+.try .btn { border-color:var(--ink); color:var(--ink); }
+.try .btn:hover { background:var(--card); }
+.try small { display:block; color:var(--sub); margin-top:6px; font-size:.85rem; }
+.video { position:relative; padding-top:56.25%; background:#000; border-radius:4px; overflow:hidden; }
 .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-.shots { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
-.shots img { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:2px; }
-.web-h { margin:40px 0 0; font-size:1.2rem; color:var(--ink); }
-.web-h.sheet-h { border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:24px; }
 .yt { margin:6px 0 0; text-align:right; font-size:.9rem; }
 .yt a { color:var(--ink); }
+.shots { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+.shots img { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:4px; }
+
+/* 進め方 */
+.flow { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); gap:48px; }
+.steps { list-style:none; margin:0; padding:0; counter-reset:step; }
+.steps li { display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:4px 12px; padding:16px 0; border-top:1px solid var(--line); }
+.steps li:last-child { border-bottom:1px solid var(--line); }
+.steps .num { grid-row:span 2; font-size:2rem; font-weight:900; color:var(--ink); line-height:1.1; }
+.steps h3 { margin:0; font-size:1.1rem; color:var(--ink); line-height:1.5; }
+.steps p { margin:0; color:var(--sub); }
+.kit { background:var(--card); border-radius:6px; padding:24px 26px; align-self:start; }
+.kit h3 { margin:0 0 10px; font-size:1.1rem; color:var(--ink); }
+.kit ul { margin:0; padding-left:1.2em; }
+.kit li { margin:6px 0; }
+.kit li::marker { color:var(--accent); }
+
+/* 相談の帯 */
+.cta { margin-top:80px; padding:56px; }
+.cta h2 { font-size:clamp(1.6rem, 3.6vw, 2.3rem); font-weight:900; margin:0 0 12px; line-height:1.35; }
+.cta p { color:var(--hero-sub); max-width:36em; margin:0 0 28px; }
+
+footer { padding:28px 0 0; color:var(--sub); font-size:.9rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px; }
+footer p { margin:0; }
 footer a { color:var(--ink); }
-footer p { margin:0 0 6px; }
-footer { border-top:2px solid var(--ink); padding-top:16px; color:var(--sub); font-size:.9rem; }
+
+@media (max-width:860px) {
+  .pains a, .pains-head { grid-template-columns:minmax(0,1fr) auto; }
+  .pains .s { grid-column:1; grid-row:2; }
+  .pains .e { grid-column:2; grid-row:1 / span 2; align-self:center; }
+  .pains-head span:nth-child(2) { display:none; }
+  .ways { grid-template-columns:1fr; gap:24px; }
+  .flow { grid-template-columns:1fr; gap:28px; }
+  .minis { grid-template-columns:1fr 1fr; }
+  .lps { grid-template-columns:1fr 1fr; }
+  .road { grid-template-columns:1fr; }
+  .road li { padding:0 0 24px 60px; min-height:64px; }
+  .road li::before { left:19px; right:auto; top:42px; bottom:0; width:4px; height:auto; }
+  .road li:last-child::before { display:none; }
+}
+@media (max-width:560px) { .minis, .lps { grid-template-columns:1fr; } }
 @media (max-width:760px) {
-  .sample { grid-template-columns:1fr; }
+  .top nav a:not(.btn) { display:none; }
+  .hero { padding:44px 22px 32px; }
+  .hero p.lead { font-size:1rem; }
+  .facts { margin-top:28px; }
+  .block { padding-top:56px; }
+  .pains a { grid-template-columns:1fr; gap:4px; padding:14px 4px; }
+  .pains .s, .pains .e { grid-column:1; grid-row:auto; text-align:left; }
+  .pains-head { display:none; }
+  .sample { grid-template-columns:1fr; gap:8px; }
   .shots { grid-template-columns:1fr; }
   .gantt { border-bottom:0; }
   .g-head { display:none; }
   .g-row { display:block; padding:0; }
   .g-row a { margin:0 0 4px; white-space:normal; }
-  .g-row + .g-row { }
+  .cta { padding:36px 22px; margin-top:64px; }
+  .btn { width:100%; text-align:center; }
+  .top .btn { width:auto; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-<img class="banner" src="images/banner.png" alt="しくみ工房　手作業を、自動で回る仕組みに　Google スプレッドシート ＋ WEB アプリ開発" width="2560" height="840">
-<header><img src="images/icon.png" alt="しくみ工房"><div><h1>しくみ工房　実績</h1><p class="sub">スプレッドシートの手作業を、自動で回る仕組みに</p></div></header>
+<div class="top">
+  <a class="brand" href="#"><img src="images/icon.png" alt="" width="36" height="36">しくみ工房</a>
+  <nav aria-label="ページの中"><a href="#web">WEB アプリ</a><a href="#road">進め方</a><a href="#lp">LP の例</a><a class="btn primary small" href="#contact">相談する</a></nav>
+</div>
 
-<h2 class="web-h">WEB アプリの見本</h2>
+<header class="hero">
+  <h1><span>現場も予約も、</span><span>スマホで回る仕組みに。</span></h1>
+  <p class="lead">予約・現場・お客さんの管理を、WEB アプリにします。社長・社員・お客さんで見える範囲を分け、外からもスマホのホーム画面から使えます。IT 担当のいない小さな会社のための仕組みです。</p>
+  <div class="actions"><a class="btn primary" href="#web">WEB アプリを試す</a><a class="btn ghost" href="#contact">無料で相談する</a></div>
+  <ul class="facts"><li><b>2</b>つの WEB アプリを、ブラウザで試せます</li><li>WEB アプリは<b>30</b>万円から</li><li>スプレッドシートなら<b>2</b>万円から始められます</li><li>納品から<b>30</b>日間、不具合は無料で直します</li></ul>
+</header>
+
+<section class="block" id="pains" aria-labelledby="pains-h">
+  <h2 id="pains-h">こんな手作業、ありませんか</h2>
+  <p class="intro">今の作業に近いものを選ぶと、その見本（動画と画面）に移ります。データはすべて架空です。</p>
+  <div class="pains-head" aria-hidden="true"><span>今の作業</span><span>見本</span><span>年間の削減（試算）</span></div><ul class="pains"><li><a href="#sW02"><span class="p">電話・LINE・紙の予約がバラバラで、二重予約が心配</span><span class="s"><small>W02</small>予約と顧客管理アプリ</span><span class="e">年約220時間</span></a></li><li><a href="#sW01"><span class="p">シートを共有すると、金額や社内のメモまで見えてしまう</span><span class="s"><small>W01</small>現場管理アプリ</span><span class="e">年約150時間</span></a></li><li><a href="#s01"><span class="p">概算の金額を電話・メールで聞かれ、返事が翌日になる</span><span class="s"><small>C01</small>概算見積（WEB）</span><span class="e">年約40時間</span></a></li><li><a href="#s02"><span class="p">問い合わせを、メールや紙から台帳に書き写している</span><span class="s"><small>C02</small>お問い合わせの記録と通知</span><span class="e">年約22時間</span></a></li><li><a href="#s03"><span class="p">見積書を、前の Excel をコピーして打ち直している</span><span class="s"><small>C03</small>正式な見積書</span><span class="e">年約90時間</span></a></li><li><a href="#s04"><span class="p">職人さんに、夕方1人ずつ電話で予定を伝えている</span><span class="s"><small>C04</small>工程表とカレンダー</span><span class="e">年約48時間</span></a></li><li><a href="#s05"><span class="p">LINE で届いた現場の写真を、手でフォルダに分けている</span><span class="s"><small>C05</small>現場の写真と書類</span><span class="e">年約110時間</span></a></li><li><a href="#s07"><span class="p">月末に、売上の表から請求書を1通ずつ作っている</span><span class="s"><small>C07</small>請求書の自動作成</span><span class="e">年約35時間</span></a></li><li><a href="#sX01"><span class="p">見積書・納品書・請求書を、別々に打ち直している</span><span class="s"><small>X01</small>見積書・納品書・請求書</span><span class="e">年約215時間</span></a></li></ul>
+</section>
+
+<section class="block" id="ways" aria-labelledby="ways-h">
+  <h2 id="ways-h">3つの作り方</h2>
+  <p class="intro">今お使いの道具と、困りごとの大きさに合わせて選びます。</p>
+  <div class="ways">
+    <div class="main"><h3>WEB アプリ</h3><p class="price">30万円から</p><p>ログインと権限、予約や現場の管理、お客さんの専用ページ。スプレッドシートでは足りない業務の画面を作ります。スマホのホーム画面にも入れられます。</p><p class="to"><a href="#web">見本2つ（ブラウザで試せます）</a>　<a href="web.html">WEB で管理するよさ</a></p></div>
+    <div><h3>Google スプレッドシート</h3><p class="price">1つ2万円から</p><p>今お使いの Google の中で、記録・通知・書類の作成を自動にします。困りごと1つから、小さく始められます。</p><p class="to"><a href="#small">見本6つ（動画）</a></p></div>
+    <div><h3>Excel（マクロ）</h3><p class="price">ご相談</p><p>Excel のまま、見積書から納品書、月の請求書までをつなげます。今ある Excel のマクロの修正も承ります。</p><p class="to"><a href="#small">見本1つ（動画）</a></p></div>
+  </div>
+  <p class="ways-note">まずスプレッドシートや Excel で始め、データがたまり人が増えたら WEB アプリに移す進め方もできます。スプレッドシートで足りる場合は、そちらをご提案します。</p>
+</section>
+
+<h2 class="group-h" id="web">WEB アプリの見本</h2>
+<p class="group-note">どちらもパスワードなしで、架空のデータを使って試せます。WEB で管理するよさは<a href="web.html">こちら</a>、スマホへの入れ方は<a href="pwa.html">こちら</a>で説明しています。</p>
+
 <section class="sample" id="sW01" aria-labelledby="hW01">
-  <div class="s-head"><span class="no">W01</span><h2 id="hW01">現場管理アプリ（WEB アプリ）</h2></div>
+  <div class="s-head"><span class="no">W01</span><h3 id="hW01">現場管理アプリ（WEB アプリ）</h3></div>
   <div>
     <p class="lead">入る人によって見える範囲が変わる、現場管理の WEB アプリです。お客さんには進み具合だけの専用ページを用意できます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>シートごと共有すると、金額も社内のメモも見えてしまう</td></tr><tr><th scope="row">作業後</th><td>社長・社員・職人・お客さんで見える範囲を分ける。職人は担当の現場だけ、金額は見えない</td></tr></table>
-    <p class="effect">スマホにインストールできる・権限はデータベース側でも守る（テストつき）</p>
-    <p class="yt" style="text-align:left"><a href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener"><b>ブラウザで試す（パスワードなし・架空のデータ）</b></a></p>
+    <div class="ba"><div class="before"><b>今</b>シートごと共有すると、金額も社内のメモも見えてしまう</div><div class="after"><b>仕組みにすると</b>社長・社員・職人・お客さんで見える範囲を分ける。職人は担当の現場だけ、金額は見えない</div></div>
+    <div class="effect"><div class="row"><b>年約150時間・約30万円分</b><a class="webok" href="web.html">WEB管理可能</a></div><small>年間の削減（試算）</small></div>
+    <p class="try"><a class="btn small" href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a><small>パスワードなし・架空のデータで動きます</small></p>
   </div>
   <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/bEkK9iGIro0?rel=0" title="WEB 見本 現場管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/bEkK9iGIro0?rel=0" title="WEB 見本 W01 現場管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
     <p class="yt"><a href="https://youtu.be/bEkK9iGIro0" target="_blank" rel="noopener">YouTube で開く</a></p>
   </div>
-  <div class="shots"><img src="images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" loading="lazy"><img src="images/W01-2.png" alt="社長の画面（現場の一覧。職人で入ると担当の現場だけ）" loading="lazy"></div>
+  <div class="shots"><img src="images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" loading="lazy" width="1280" height="800"><img src="images/W01-2.png" alt="社長の画面（現場の一覧。職人で入ると担当の現場だけ）" loading="lazy" width="1280" height="800"></div>
 </section>
 
 <section class="sample" id="sW02" aria-labelledby="hW02">
-  <div class="s-head"><span class="no">W02</span><h2 id="hW02">予約と顧客管理アプリ（WEB アプリ）</h2></div>
+  <div class="s-head"><span class="no">W02</span><h3 id="hW02">予約と顧客管理アプリ（WEB アプリ）</h3></div>
   <div>
     <p class="lead">電話・LINE・紙でバラバラの予約を、画面1つに。お客さんは空いている日時を選んで予約し、お店は予約表とカルテで管理できます。ネイルサロンと料理教室の2つの例で動きます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>電話・LINE・手書きの予約が散らばり、二重予約や聞き忘れが心配</td></tr><tr><th scope="row">作業後</th><td>お客さんが日にちと時間を選んで予約。お店は予約表・空き表・お客さんのカルテで管理。教室は開催日と定員で受け付け</td></tr></table>
-    <p class="effect">年約70時間・約14万円分<small>年間の削減（試算）</small></p>
-    <p class="yt" style="text-align:left"><a href="https://booking-crm.shikumikobo.com/" target="_blank" rel="noopener"><b>ブラウザで試す（パスワードなし・架空のデータ）</b></a></p>
+    <div class="ba"><div class="before"><b>今</b>電話・LINE・手書きの予約が散らばり、二重予約や聞き忘れが心配</div><div class="after"><b>仕組みにすると</b>お客さんが日にちと時間を選んで予約。お店は予約表・空き表・お客さんのカルテで管理。教室は開催日と定員で受け付け</div></div>
+    <div class="effect"><div class="row"><b>年約220時間・約44万円分</b><a class="webok" href="web.html">WEB管理可能</a></div><small>年間の削減（試算）</small></div>
+    <p class="try"><a class="btn small" href="https://booking-crm.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a><small>パスワードなし・架空のデータで動きます</small></p>
   </div>
   <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/vmdvYIvkQYM?rel=0" title="WEB 見本 予約と顧客管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/vmdvYIvkQYM?rel=0" title="WEB 見本 W02 予約と顧客管理アプリ（WEB アプリ）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
     <p class="yt"><a href="https://youtu.be/vmdvYIvkQYM" target="_blank" rel="noopener">YouTube で開く</a></p>
   </div>
-  <div class="shots"><img src="images/W02-1.png" alt="動画の場面：お客さんが空いている時間を選んで予約する" loading="lazy"><img src="images/W02-2.png" alt="動画の場面：お店の予約表と空き表" loading="lazy"></div>
-</section>
-<h2 class="web-h sheet-h">スプレッドシートの見本</h2>
-<p class="intro">従業員10人ほどの工務店を例に、問い合わせから見積・現場まで、6つの仕組みを作りました。どれも Google のスプレッドシートと Apps Script で動き、新しいソフトを入れる必要はありません。動画は1〜2分で、実際の画面で紹介しています。</p>
-<p class="note">データはすべて架空です。削減時間は、月の件数と1件あたりの時間を仮に置いた試算で、時給2,000円で換算しています。お客さんの実際の数字で計算し直します。</p>
-<nav class="gantt" aria-label="見本の一覧"><div class="g-head"><span>問い合わせの前</span><span>受付</span><span>見積</span><span>工事</span><span>請求</span></div><div class="g-row"><a class="c1" href="#s01"><b>01</b>概算見積（WEB）</a></div><div class="g-row"><a class="c2" href="#s02"><b>02</b>問い合わせの記録と通知</a></div><div class="g-row"><a class="c3" href="#s03"><b>03</b>正式な見積書</a></div><div class="g-row"><a class="c4" href="#s04"><b>04</b>工程表とカレンダー</a></div><div class="g-row"><a class="c4" href="#s05"><b>05</b>現場の写真と書類</a></div><div class="g-row"><a class="c5" href="#s07"><b>07</b>請求書の自動作成</a></div></nav>
-
-<section class="sample" id="s01" aria-labelledby="h01">
-  <div class="s-head"><span class="no">01</span><h2 id="h01">概算見積（WEB）</h2></div>
-  <div>
-    <p class="lead">ホームページから、お客さんが24時間、自分で概算の金額を出せます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>電話・メールで1件20分。返事は翌日</td></tr><tr><th scope="row">作業後</th><td>スマホで選ぶと、その場で金額の幅が出る。現地調査の申し込みも画面から</td></tr></table>
-    <p class="effect">年約40時間・約8万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/xjfs_oFX_Rw?rel=0" title="見本01 概算見積（WEB）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/xjfs_oFX_Rw" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/01-1.png" alt="お客さんがスマホで選ぶと、金額の幅（税込）が出る" loading="lazy"><img src="images/01-2.png" alt="申し込みが受付に入り、営業にメールが届く" loading="lazy"></div>
-</section>
-<section class="sample" id="s02" aria-labelledby="h02">
-  <div class="s-head"><span class="no">02</span><h2 id="h02">お問い合わせの記録と通知</h2></div>
-  <div>
-    <p class="lead">WEB と店頭の問い合わせを、自動で記録し、担当者に知らせます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>メールや紙から転記して、手で連絡。漏れや二重登録がある</td></tr><tr><th scope="row">作業後</th><td>台帳に自動で1行入り、担当者に通知。お客さんに自動返信</td></tr></table>
-    <p class="effect">年約22時間・約4.4万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/VqnUljA0n3E?rel=0" title="見本02 お問い合わせの記録と通知" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/02-1.png" alt="WEB のフォームから送ると、台帳の「受付」に1行入る" loading="lazy"><img src="images/02-2.png" alt="営業の担当者に通知のメールが届く" loading="lazy"></div>
-</section>
-<section class="sample" id="s03" aria-labelledby="h03">
-  <div class="s-head"><span class="no">03</span><h2 id="h03">正式な見積書</h2></div>
-  <div>
-    <p class="lead">品目を選んで数量を入れるだけで、見積書の PDF とメールの下書きができます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>前の Excel をコピーして打ち直し。1件45分</td></tr><tr><th scope="row">作業後</th><td>品目を選び、合計・版は自動。1件15分</td></tr></table>
-    <p class="effect">年約90時間・約18万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/_-2qiz1TLeg?rel=0" title="見本03 正式な見積書" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/03-1.png" alt="品目を選んで数量を入れる「見積の入力」" loading="lazy"><img src="images/03-2.png" alt="見積書の PDF（番号は現場番号と版）" loading="lazy"></div>
-</section>
-<section class="sample" id="s04" aria-labelledby="h04">
-  <div class="s-head"><span class="no">04</span><h2 id="h04">工程表とカレンダー</h2></div>
-  <div>
-    <p class="lead">予定を1行入れると、職人さんのカレンダーと前日のメールに届きます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>夕方に1人ずつ電話。工程表は Excel で作り直して印刷</td></tr><tr><th scope="row">作業後</th><td>カレンダーに反映すると、前日にメールが自動で届く。工程表は PDF に</td></tr></table>
-    <p class="effect">年約48時間・約9.6万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/U8hm_w8dHZQ?rel=0" title="見本04 工程表とカレンダー" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/04-1.png" alt="「予定」を1行入れてカレンダーに反映する" loading="lazy"><img src="images/04-2.png" alt="3か月の工程表（現場ごとの帯）" loading="lazy"></div>
-</section>
-<section class="sample" id="s05" aria-labelledby="h05">
-  <div class="s-head"><span class="no">05</span><h2 id="h05">現場の写真と書類</h2></div>
-  <div>
-    <p class="lead">スマホから送るだけで、写真が現場ごとのフォルダに整理されます</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>LINE の写真を保存し、現場のフォルダに振り分け。報告書は Word で作る</td></tr><tr><th scope="row">作業後</th><td>送るだけで現場のフォルダに入る。報告書は印を付けて1通5分</td></tr></table>
-    <p class="effect">年約110時間・約22万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/v-evSr0hZZM?rel=0" title="見本05 現場の写真と書類" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" loading="lazy"><img src="images/05-2.png" alt="送った写真が現場のフォルダに入る" loading="lazy"></div>
-</section>
-<section class="sample" id="s07" aria-labelledby="h07">
-  <div class="s-head"><span class="no">07</span><h2 id="h07">請求書の自動作成</h2></div>
-  <div>
-    <p class="lead">月末の請求書を、ボタン1つで。その月の売上を顧客ごとにまとめ、請求書の PDF とメールの下書きを作ります</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>売上の表から金額を拾い、請求書を手で作って PDF にし、メールを書く。月3時間</td></tr><tr><th scope="row">作業後</th><td>顧客ごとの請求書の PDF とメールの下書きができる。確認して送るだけ（5分）。請求した売上には番号が付き、二重の請求にならない</td></tr></table>
-    <p class="effect">年約35時間・約7万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/rY_ovs0BVUg?rel=0" title="見本07 請求書の自動作成" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/07-1.png" alt="対象の売上を顧客ごとにまとめた確認の画面" loading="lazy"><img src="images/07-2.png" alt="請求書の PDF（税率ごとの合計つき）" loading="lazy"></div>
+  <div class="shots"><img src="images/W02-1.png" alt="動画の場面：お客さんが空いている時間を選んで予約する" loading="lazy" width="1920" height="1080"><img src="images/W02-2.png" alt="動画の場面：お店の予約表と空き表" loading="lazy" width="1920" height="1080"></div>
 </section>
 
-<h2 class="web-h">Excel の見本</h2>
-<section class="sample" id="sX01" aria-labelledby="hX01">
-  <div class="s-head"><span class="no">X01</span><h2 id="hX01">見積書・納品書・請求書（Excel）</h2></div>
-  <div>
-    <p class="lead">見積書から納品書、月締めの請求書まで、Excel のまま。8%と10%が混ざっても、税率ごとに合計を出します（架空の食品・業務用品の卸）</p>
-    <table class="ba"><tr><th scope="row">作業前</th><td>見積書と納品書を、前のファイルをコピーして打ち直す。月末に、納品を拾って請求書を作る</td></tr><tr><th scope="row">作業後</th><td>見積から納品書、月ごとの請求書が、同じ Excel でつながる。税率ごとの合計と消費税（切り捨て）は自動</td></tr></table>
-    <p class="effect">年約215時間・約43万円分<small>年間の削減（試算）</small></p>
-  </div>
-  <div>
-    <div class="video"><iframe src="https://www.youtube.com/embed/3ar2R-4wTmQ?rel=0" title="Excel 見本 見積書・納品書・請求書（Excel）" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt"><a href="https://youtu.be/3ar2R-4wTmQ" target="_blank" rel="noopener">YouTube で開く</a></p>
-  </div>
-  <div class="shots"><img src="images/X01-1.png" alt="動画の場面：ボタンで、見積書の PDF ができる" loading="lazy"><img src="images/X01-2.png" alt="動画の場面：月末に、請求書をまとめて作る（締め日・支払期限は取引先ごと）" loading="lazy"></div>
+<section class="block" id="road" aria-labelledby="road-h">
+  <h2 id="road-h">小さく始めて、WEB アプリへ</h2>
+  <p class="intro">いきなり大きなシステムにしなくても大丈夫です。困りごと1つから始めて、育てていけます。</p>
+  <ol class="road">
+    <li><span class="num">1</span><h3>小さく始める</h3><p>スプレッドシートや Excel で、困りごと1つを自動に。</p><p class="price">1つ2万円から・セット4万円から</p></li>
+    <li><span class="num">2</span><h3>データがたまる</h3><p>顧客・現場・見積が、1つの台帳にそろっていきます。</p></li>
+    <li><span class="num">3</span><h3>WEB アプリに移す</h3><p>人が増え、見せる範囲を分けたくなったら。見本の台帳は WEB アプリと列をそろえてあり、データを移しやすい作りです。</p><p class="price">30万円から</p></li>
+    <li><span class="num">4</span><h3>スマホとお客さんの窓口</h3><p>外からスマホで使い、お客さんには専用ページや24時間の予約を。</p><p class="to"><a href="pwa.html">スマホのアプリとして使う</a></p></li>
+  </ol>
 </section>
-<footer><p>しくみ工房　｜　ご相談は、ランサーズまたはココナラのメッセージからお願いします。</p>
-<p><a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube チャンネル</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></p></footer>
+
+<h2 class="group-h" id="small">小さく始める仕組み（スプレッドシート・Excel）</h2>
+<p class="group-p">従業員10人ほどの工務店を例にした6つと、卸の見積・納品・請求の Excel が1つ。どれも1〜2分の動画で、実際の画面を紹介しています。</p>
+<p class="group-note">削減時間は、月の件数と1件あたりの時間を仮に置いた試算で、時給2,000円で換算しています。お客さんの実際の数字で計算し直します。</p>
+<ul class="minis"><li id="s01"><img src="images/01-1.png" alt="お客さんがスマホで選ぶと、金額の幅（税込）が出る" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C01</span><h3>概算見積（WEB）</h3><p class="m-pain">概算の金額を電話・メールで聞かれ、返事が翌日になる</p><p class="m-eff"><b>年約40時間・約8万円分</b><a class="webok" href="web.html">WEB管理可能</a></p><p class="m-go"><a href="https://youtu.be/xjfs_oFX_Rw" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="s02"><img src="images/02-1.png" alt="WEB のフォームから送ると、台帳の「受付」に1行入る" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C02</span><h3>お問い合わせの記録と通知</h3><p class="m-pain">問い合わせを、メールや紙から台帳に書き写している</p><p class="m-eff"><b>年約22時間・約4.4万円分</b></p><p class="m-go"><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="s03"><img src="images/03-1.png" alt="品目を選んで数量を入れる「見積の入力」" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C03</span><h3>正式な見積書</h3><p class="m-pain">見積書を、前の Excel をコピーして打ち直している</p><p class="m-eff"><b>年約90時間・約18万円分</b></p><p class="m-go"><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="s04"><img src="images/04-1.png" alt="「予定」を1行入れてカレンダーに反映する" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C04</span><h3>工程表とカレンダー</h3><p class="m-pain">職人さんに、夕方1人ずつ電話で予定を伝えている</p><p class="m-eff"><b>年約48時間・約9.6万円分</b></p><p class="m-go"><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="s05"><img src="images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C05</span><h3>現場の写真と書類</h3><p class="m-pain">LINE で届いた現場の写真を、手でフォルダに分けている</p><p class="m-eff"><b>年約110時間・約22万円分</b></p><p class="m-go"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="s07"><img src="images/07-1.png" alt="対象の売上を顧客ごとにまとめた確認の画面" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">C07</span><h3>請求書の自動作成</h3><p class="m-pain">月末に、売上の表から請求書を1通ずつ作っている</p><p class="m-eff"><b>年約35時間・約7万円分</b></p><p class="m-go"><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">動画を見る</a></p></div></li><li id="sX01"><img src="images/X01-1.png" alt="動画の場面：ボタンで、見積書の PDF ができる" loading="lazy" width="1920" height="1080"><div class="m-body"><span class="no">X01</span><h3>見積書・納品書・請求書（Excel）</h3><p class="m-pain">見積書・納品書・請求書を、別々に打ち直している</p><p class="m-eff"><b>年約215時間・約43万円分</b></p><p class="m-go"><a href="https://youtu.be/3ar2R-4wTmQ" target="_blank" rel="noopener">動画を見る</a></p></div></li></ul>
+
+<section class="block" id="lp" aria-labelledby="lp-h">
+  <h2 id="lp-h">LP の例</h2>
+  <p class="intro">このページと同じ見本を使い、ねらいを変えて作ったページの例です。業種で選ぶ、触って試す、前と後を見せる、段階で見せる、の4つです。</p>
+  <ul class="lps"><li><a href="variants/b.html" target="_blank" rel="noopener"><img src="images/lp-b.png" alt="" loading="lazy" width="640" height="400"><span class="l-body"><b>業種で選ぶ</b><span>工務店・サロン・卸の3つから選ぶと、その業種の WEB アプリと仕組みが並びます</span></span></a></li><li><a href="variants/c.html" target="_blank" rel="noopener"><img src="images/lp-c.png" alt="" loading="lazy" width="640" height="400"><span class="l-body"><b>触って試す</b><span>一番上で予約アプリがスマホの枠の中で動きます。説明より先に、触ってもらう形です</span></span></a></li><li><a href="variants/d.html" target="_blank" rel="noopener"><img src="images/lp-d.png" alt="" loading="lazy" width="640" height="400"><span class="l-body"><b>前と後を見せる</b><span>見本1つで1画面。「今」の困りごとを大きな字で見せ、仕組みにしたあとを続けます</span></span></a></li><li><a href="variants/e.html" target="_blank" rel="noopener"><img src="images/lp-e.png" alt="" loading="lazy" width="640" height="400"><span class="l-body"><b>段階で見せる</b><span>スプレッドシートで小さく始めて、WEB アプリとスマホまで育てる道のりを見せます</span></span></a></li></ul>
+</section>
+
+<section class="block" id="flow" aria-labelledby="flow-h">
+  <h2 id="flow-h">ご依頼の流れ</h2>
+  <p class="intro">やりとりは、ランサーズまたはココナラのメッセージで進めます。</p>
+  <div class="flow">
+    <ol class="steps">
+      <li><span class="num">1</span><h3>無料のご相談</h3><p>今の作業をうかがい、自動化できるところをご提案します。</p></li>
+      <li><span class="num">2</span><h3>お見積り</h3><p>作る範囲・納期・金額・直しの回数を、文書でお出しします。</p></li>
+      <li><span class="num">3</span><h3>作成と納品</h3><p>お客さまの環境の中で作り、手順書をお渡しします。</p></li>
+      <li><span class="num">4</span><h3>納品後の30日間</h3><p>不具合は無料で直します。その後の保守もご相談ください。</p></li>
+    </ol>
+    <div class="kit">
+      <h3>スプレッドシートの納品物に付けるもの</h3>
+      <ul>
+        <li>失敗したときの通知メール</li>
+        <li>記録（ログ）：いつ・何件・成功か失敗か</li>
+        <li>元のデータを消さない・上書きしないつくり</li>
+        <li>手順書：使い方と、止まったときの確かめ方</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">まずは、今の作業をお聞かせください</h2>
+  <p>ご相談は無料です。ランサーズまたはココナラのメッセージからお送りください。お返事は、平日は翌日まで、土日は月曜までにします。</p>
+  <div class="actions"><a class="btn primary" href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズで相談する</a><a class="btn ghost" href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラで相談する</a></div>
+</section>
+
+<footer><p>しくみ工房</p>
+<p><a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></p></footer>
 </div>
 </body>
 </html>

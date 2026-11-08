@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>しくみ工房｜業種から探す</title>
+<meta name="description" content="業種を選ぶと、その仕事に合った自動化の見本が並びます。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap">
+<style>
+:root { --bg:#FFFFFF; --soft:#EEF2F6; --ink:#1F3A5F; --text:#1E2329; --sub:#5A6470; --line:#D3DAE2; --accent:#B45F0C; --on:#FFFFFF;
+  --display:"Zen Kaku Gothic New","BIZ UDPGothic",sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12161B; --soft:#1C232B; --ink:#A9C2E3; --text:#E8EAED; --sub:#9AA5B1; --line:#323C47; --accent:#F0A25A; --on:#12161B; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:"BIZ UDPGothic","Yu Gothic",sans-serif; line-height:1.8; }
+h1, h2, h3, p, li { word-break:auto-phrase; }
+h1, h2, h3, .ind b, .brand { font-family:var(--display); }
+a { color:inherit; }
+a:focus-visible, button:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
+.top { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+.brand { display:flex; gap:10px; align-items:center; font-weight:700; font-size:1.15rem; color:var(--ink); text-decoration:none; }
+.brand img { width:36px; height:36px; border-radius:50%; }
+.btn { display:inline-block; padding:12px 22px; border-radius:999px; font-weight:700; text-decoration:none; border:2px solid var(--ink); color:var(--ink); line-height:1.4; }
+.btn.fill { background:var(--accent); border-color:var(--accent); color:#fff; }
+@media (prefers-color-scheme: dark) { .btn.fill { color:#12161B; } }
+.hero { padding:56px 0 24px; }
+.hero h1 { font-size:clamp(2rem, 5vw, 3.4rem); font-weight:900; line-height:1.25; color:var(--ink); margin:0 0 16px; }
+.hero p { color:var(--sub); font-size:1.1rem; max-width:34em; margin:0; }
+.inds { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; margin:40px 0 0; }
+.ind { all:unset; box-sizing:border-box; cursor:pointer; display:block; padding:22px 24px 20px; border:2px solid var(--line); border-radius:14px; background:var(--bg); color:var(--text); }
+.ind:hover { border-color:var(--ink); }
+.ind b { display:block; font-size:1.6rem; color:var(--ink); line-height:1.3; }
+.ind span { display:block; color:var(--sub); font-size:.95rem; margin-top:6px; }
+.ind small { display:block; margin-top:14px; font-weight:700; color:var(--accent); }
+.ind[aria-selected="true"] { background:var(--ink); border-color:var(--ink); }
+.ind[aria-selected="true"] b, .ind[aria-selected="true"] span { color:var(--on); }
+.ind[aria-selected="true"] small { color:var(--on); opacity:.85; }
+.panel { background:var(--soft); margin-top:-1px; padding:40px 0 64px; }
+.panel h2 { font-size:1.5rem; color:var(--ink); margin:0 0 4px; }
+.panel .note { color:var(--sub); font-size:.9rem; margin:0 0 24px; }
+.cards { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; list-style:none; margin:0; padding:0; }
+.cards li { background:var(--bg); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+.cards li[hidden] { display:none; }
+.cards li.web { grid-column:span 2; outline:3px solid var(--accent); outline-offset:-3px; }
+.cards li.web .no::after { content:"WEB アプリ"; margin-left:10px; color:var(--accent); }
+@media (max-width:640px) { .cards li.web { grid-column:auto; } }
+.cards img { width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover; object-position:top; border-bottom:1px solid var(--line); }
+.cards .body { padding:16px 18px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.cards .no { color:var(--sub); font-size:.85rem; font-weight:700; }
+.cards h3 { margin:0; font-size:1.15rem; color:var(--ink); line-height:1.45; }
+.cards .pain { margin:0; color:var(--sub); font-size:.93rem; }
+.cards .eff { margin:auto 0 0; font-weight:700; color:var(--accent); }
+.cards .eff.plain { color:var(--sub); font-weight:400; font-size:.9rem; }
+.webok { display:inline-block; margin-left:6px; padding:0 10px; border:1.5px solid var(--ink); border-radius:999px; color:var(--ink); font-size:.78rem; line-height:1.7; text-decoration:none; white-space:nowrap; vertical-align:2px; }
+.cards .links { display:flex; gap:16px; font-size:.93rem; font-weight:700; }
+.cards .links a { color:var(--ink); }
+.cta { padding:64px 0; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:center; }
+.cta h2 { font-size:clamp(1.5rem, 3.2vw, 2rem); color:var(--ink); margin:0 0 6px; }
+.cta p { margin:0; color:var(--sub); }
+.cta .acts { display:flex; gap:12px; flex-wrap:wrap; }
+footer { border-top:1px solid var(--line); padding:20px 0 40px; color:var(--sub); font-size:.9rem; }
+footer a { color:var(--ink); }
+@media (max-width:860px) { .cards { grid-template-columns:1fr 1fr; } .cta { grid-template-columns:1fr; } }
+@media (max-width:640px) { .inds, .cards { grid-template-columns:1fr; } .ind b { font-size:1.35rem; } .btn { width:100%; text-align:center; } .top .btn { width:auto; } }
+
+.lp-strip { margin:0; padding:7px 16px; background:#1F3A5F; color:#E3E9F0; font:13px/1.6 "BIZ UDPGothic","Yu Gothic",sans-serif; text-align:center; }
+.lp-strip a { color:#FFFFFF; font-weight:700; margin-left:.8em; }
+</style>
+
+</head>
+<body>
+<p class="lp-strip">しくみ工房が作った LP の例です（データは架空です）。<a href="../">実績のページに戻る</a></p>
+<div class="wrap">
+<div class="top"><a class="brand" href="#"><img src="../images/icon.png" alt="" width="36" height="36">しくみ工房</a><a class="btn" href="#contact">相談する</a></div>
+<header class="hero">
+  <h1>あなたの業種の、<br>手作業から。</h1>
+  <p>業種を選ぶと、その仕事に合った WEB アプリと仕組みが並びます。WEB アプリはブラウザで試せます（30万円から）。スプレッドシートで小さく始めることもできます。データはすべて架空です。</p>
+  <div class="inds" role="tablist" aria-label="業種"><button class="ind" role="tab" id="t-build" aria-controls="panel" aria-selected="false" data-ind="build"><b>工務店・建設</b><span>見積、工程、現場の写真、請求</span><small>見本 7つ</small></button><button class="ind" role="tab" id="t-salon" aria-controls="panel" aria-selected="false" data-ind="salon"><b>サロン・教室</b><span>予約、お客さんのカルテ、問い合わせ</span><small>見本 2つ</small></button><button class="ind" role="tab" id="t-trade" aria-controls="panel" aria-selected="false" data-ind="trade"><b>卸・小売・事務</b><span>見積書、納品書、請求書</span><small>見本 4つ</small></button></div>
+</header>
+</div>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="panel-h"><div class="wrap">
+  <h2 id="panel-h">見本</h2>
+  <p class="note">年間の削減は、月の件数と1件あたりの時間を仮に置いた試算です（時給2,000円で換算）。お客さんの実際の数字で計算し直します。</p>
+  <ul class="cards"><li class="web" data-ind="build"><img src="../images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" width="1280" height="800" loading="lazy"><div class="body"><span class="no">W01</span><h3>現場管理アプリ</h3><p class="pain">シートを共有すると、金額や社内のメモまで見えてしまう</p><p class="eff">年約150時間・約30万円分 <a class="webok" href="../web.html">WEB管理可能</a><br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/bEkK9iGIro0" target="_blank" rel="noopener">動画を見る</a><a href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a></p></div></li><li class="web" data-ind="salon"><img src="../images/W02-1.png" alt="動画の場面：お客さんが空いている時間を選んで予約する" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">W02</span><h3>予約と顧客管理アプリ</h3><p class="pain">電話・LINE・紙の予約がバラバラで、二重予約が心配</p><p class="eff">年約220時間・約44万円分 <a class="webok" href="../web.html">WEB管理可能</a><br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/vmdvYIvkQYM" target="_blank" rel="noopener">動画を見る</a><a href="https://booking-crm.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a></p></div></li><li data-ind="build"><img src="../images/01-1.png" alt="お客さんがスマホで選ぶと、金額の幅（税込）が出る" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C01</span><h3>概算見積（WEB）</h3><p class="pain">概算の金額を電話・メールで聞かれ、返事が翌日になる</p><p class="eff">年約40時間・約8万円分 <a class="webok" href="../web.html">WEB管理可能</a><br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/xjfs_oFX_Rw" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="build salon trade"><img src="../images/02-1.png" alt="WEB のフォームから送ると、台帳の「受付」に1行入る" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C02</span><h3>お問い合わせの記録と通知</h3><p class="pain">問い合わせを、メールや紙から台帳に書き写している</p><p class="eff">年約22時間・約4.4万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="build trade"><img src="../images/03-1.png" alt="品目を選んで数量を入れる「見積の入力」" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C03</span><h3>正式な見積書</h3><p class="pain">見積書を、前の Excel をコピーして打ち直している</p><p class="eff">年約90時間・約18万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="build"><img src="../images/04-1.png" alt="「予定」を1行入れてカレンダーに反映する" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C04</span><h3>工程表とカレンダー</h3><p class="pain">職人さんに、夕方1人ずつ電話で予定を伝えている</p><p class="eff">年約48時間・約9.6万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="build"><img src="../images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C05</span><h3>現場の写真と書類</h3><p class="pain">LINE で届いた現場の写真を、手でフォルダに分けている</p><p class="eff">年約110時間・約22万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="build trade"><img src="../images/07-1.png" alt="対象の売上を顧客ごとにまとめた確認の画面" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">C07</span><h3>請求書の自動作成</h3><p class="pain">月末に、売上の表から請求書を1通ずつ作っている</p><p class="eff">年約35時間・約7万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">動画を見る</a></p></div></li><li data-ind="trade"><img src="../images/X01-1.png" alt="動画の場面：ボタンで、見積書の PDF ができる" width="1920" height="1080" loading="lazy"><div class="body"><span class="no">X01</span><h3>見積書・納品書・請求書</h3><p class="pain">見積書・納品書・請求書を、別々に打ち直している</p><p class="eff">年約215時間・約43万円分 <br><small style="font-weight:400;color:var(--sub)">年間の削減（試算）</small></p><p class="links"><a href="https://youtu.be/3ar2R-4wTmQ" target="_blank" rel="noopener">動画を見る</a></p></div></li></ul>
+</div></section>
+<div class="wrap">
+<section class="cta" id="contact"><div><h2>載っていない業種も、ご相談ください</h2><p>問い合わせの記録や請求書は、どの業種でも使えます。ご相談は無料です。お返事は、平日は翌日まで、土日は月曜までにします。</p></div>
+<div class="acts"><a class="btn fill" href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズで相談する</a><a class="btn" href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラで相談する</a></div></section>
+<footer>しくみ工房　｜　<a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></footer>
+</div>
+
+<script>
+(() => {
+  const tabs = [...document.querySelectorAll('.ind')];
+  const items = [...document.querySelectorAll('.cards li')];
+  const title = document.getElementById('panel-h');
+  function pick(id, focus) {
+    tabs.forEach(t => { const on = t.dataset.ind === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+    items.forEach(li => { li.hidden = !li.dataset.ind.split(' ').includes(id); });
+    const t = tabs.find(t => t.dataset.ind === id);
+    title.textContent = t.querySelector('b').textContent + 'の見本';
+    history.replaceState(null, '', '#' + id);
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => pick(t.dataset.ind));
+    t.addEventListener('keydown', ev => {
+      const d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { ev.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length].dataset.ind, true); }
+    });
+  });
+  const start = location.hash.slice(1);
+  pick(tabs.some(t => t.dataset.ind === start) ? start : tabs[0].dataset.ind);
+})();
+</script>
+
+</body>
+</html>

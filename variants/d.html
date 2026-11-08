@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>しくみ工房｜今と、仕組みにしたあと</title>
+<meta name="description" content="小さな会社によくある手作業9つを、今と仕組みにしたあとで並べました。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap">
+<style>
+:root { --paper:#FBFBFA; --alt:#EEF1F4; --ink:#1F3A5F; --text:#1E2329; --sub:#69737E; --line:#D3DAE2; --accent:#B45F0C;
+  --display:"Zen Kaku Gothic New","BIZ UDPGothic",sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --paper:#121518; --alt:#1A1F25; --ink:#A9C2E3; --text:#E8EAED; --sub:#8F9AA6; --line:#323C47; --accent:#F0A25A; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--text); font-family:"BIZ UDPGothic","Yu Gothic",sans-serif; line-height:1.8; }
+h1, h2, h3, p, li { word-break:auto-phrase; }
+h1, h2, .now, .after p.big, .brand, .eff b { font-family:var(--display); }
+a { color:inherit; }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+.top { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+.brand { display:flex; gap:10px; align-items:center; font-weight:700; font-size:1.15rem; color:var(--ink); text-decoration:none; }
+.brand img { width:36px; height:36px; border-radius:50%; }
+.top a.link { color:var(--ink); font-weight:700; }
+.open { min-height:78vh; display:flex; flex-direction:column; justify-content:center; padding:48px 0; }
+.open h1 { font-size:clamp(2.4rem, 7vw, 5.4rem); font-weight:900; line-height:1.15; color:var(--ink); margin:0 0 28px; letter-spacing:.01em; }
+.open p { color:var(--sub); font-size:1.15rem; max-width:30em; margin:0; }
+.open .toc { margin:40px 0 0; display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.95rem; }
+.open .toc a { color:var(--ink); }
+.story { padding:88px 0 96px; }
+.story:nth-of-type(even) { background:var(--alt); }
+.tag { color:var(--sub); font-size:.95rem; margin:0 0 18px; }
+.tag b { color:var(--ink); }
+.now { font-size:clamp(1.6rem, 4.2vw, 2.9rem); font-weight:700; line-height:1.35; color:var(--sub); margin:0 0 40px; max-width:22em; }
+.now::before { content:"今"; display:inline-block; font-size:.42em; vertical-align:.45em; color:var(--paper); background:var(--sub); padding:.1em .6em; border-radius:3px; margin-right:.6em; }
+.story figure { margin:0 0 40px; }
+.story figure img { width:100%; height:auto; display:block; border-radius:10px; box-shadow:0 24px 48px rgba(19,37,61,.18); }
+.story figcaption { color:var(--sub); font-size:.9rem; margin-top:12px; }
+.after { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); gap:40px; align-items:start; }
+.after p.big { font-size:clamp(1.3rem, 2.8vw, 1.8rem); font-weight:700; color:var(--ink); line-height:1.5; margin:0; }
+.after p.big::before { content:"仕組みにすると"; display:block; font-size:.55em; color:var(--ink); opacity:.75; margin-bottom:6px; }
+.eff { margin:0 0 16px; }
+.eff b { display:block; font-size:1.8rem; color:var(--accent); line-height:1.3; }
+.eff small { display:block; color:var(--sub); }
+.webok { display:inline-block; margin:0 0 6px; padding:1px 12px; border:1.5px solid var(--ink); border-radius:999px; color:var(--ink); font-size:.85rem; font-weight:700; line-height:1.7; text-decoration:none; }
+.feat { margin:0 0 16px; color:var(--sub); }
+.go { display:flex; flex-wrap:wrap; gap:10px; }
+.go a { display:inline-block; padding:10px 18px; border:2px solid var(--ink); border-radius:6px; color:var(--ink); font-weight:700; text-decoration:none; }
+.go a.fill { background:var(--ink); color:var(--paper); }
+.close { background:var(--ink); color:#fff; padding:96px 0; }
+@media (prefers-color-scheme: dark) { .close { background:#1F3A5F; } }
+.close h2 { font-size:clamp(2rem, 5vw, 3.6rem); font-weight:900; line-height:1.2; margin:0 0 20px; }
+.close p { color:#C9D6E6; max-width:34em; margin:0 0 32px; }
+.close .btn { display:inline-block; padding:14px 26px; border-radius:6px; font-weight:700; text-decoration:none; margin:0 10px 10px 0; }
+.close .btn.a { background:#F0A25A; color:#13253D; }
+.close .btn.b { border:2px solid #fff; color:#fff; }
+footer { padding:20px 0 40px; color:var(--sub); font-size:.9rem; }
+footer a { color:var(--ink); }
+@media (max-width:760px) { .after { grid-template-columns:1fr; gap:20px; } .story { padding:64px 0; } .open { min-height:auto; } .close .btn { display:block; text-align:center; margin-right:0; } }
+
+.lp-strip { margin:0; padding:7px 16px; background:#1F3A5F; color:#E3E9F0; font:13px/1.6 "BIZ UDPGothic","Yu Gothic",sans-serif; text-align:center; }
+.lp-strip a { color:#FFFFFF; font-weight:700; margin-left:.8em; }
+</style>
+
+</head>
+<body>
+<p class="lp-strip">しくみ工房が作った LP の例です（データは架空です）。<a href="../">実績のページに戻る</a></p>
+<div class="wrap">
+<div class="top"><a class="brand" href="#"><img src="../images/icon.png" alt="" width="36" height="36">しくみ工房</a><a class="link" href="#contact">相談する</a></div>
+<header class="open">
+  <h1>今日も、同じ作業を<br>くり返していませんか。</h1>
+  <p>小さな会社によくある手作業を9つ選び、「今」と「仕組みにしたあと」を並べました。はじめの2つは、スマホでも使える WEB アプリです。データはすべて架空で、削減時間は仮の件数で出した試算です。</p>
+  <nav class="toc" aria-label="9つの例"><a href="#sW02">予約と顧客管理アプリ</a><a href="#sW01">現場管理アプリ</a><a href="#s01">概算見積（WEB）</a><a href="#s02">お問い合わせの記録と通知</a><a href="#s03">正式な見積書</a><a href="#s04">工程表とカレンダー</a><a href="#s05">現場の写真と書類</a><a href="#s07">請求書の自動作成</a><a href="#sX01">見積書・納品書・請求書</a></nav>
+</header>
+</div>
+<section class="story" id="sW02" aria-labelledby="hW02"><div class="wrap">
+  <p class="tag">W02　<b id="hW02">予約と顧客管理アプリ（WEB アプリ）</b></p>
+  <p class="now">電話・LINE・紙の予約がバラバラで、二重予約が心配</p>
+  <figure><img src="../images/W02-1.png" alt="動画の場面：お客さんが空いている時間を選んで予約する" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">お客さんが日にちと時間を選んで予約。お店は予約表・空き表・お客さんのカルテで管理。教室は開催日と定員で受け付け</p><div><p class="eff"><b>年約220時間・約44万円分</b><a class="webok" href="../web.html">WEB管理可能</a><small>年間の削減（試算）</small></p><div class="go"><a class="fill" href="https://booking-crm.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a><a href="https://youtu.be/vmdvYIvkQYM" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="sW01" aria-labelledby="hW01"><div class="wrap">
+  <p class="tag">W01　<b id="hW01">現場管理アプリ（WEB アプリ）</b></p>
+  <p class="now">シートを共有すると、金額や社内のメモまで見えてしまう</p>
+  <figure><img src="../images/W01-1.png" alt="お客さんの専用ページ（進み具合・予定・共有ファイル・お見積り）" width="1280" height="800" loading="lazy"></figure>
+  <div class="after"><p class="big">社長・社員・職人・お客さんで見える範囲を分ける。職人は担当の現場だけ、金額は見えない</p><div><p class="eff"><b>年約150時間・約30万円分</b><a class="webok" href="../web.html">WEB管理可能</a><small>年間の削減（試算）</small></p><div class="go"><a class="fill" href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a><a href="https://youtu.be/bEkK9iGIro0" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s01" aria-labelledby="h01"><div class="wrap">
+  <p class="tag">C01　<b id="h01">概算見積（WEB）</b></p>
+  <p class="now">概算の金額を電話・メールで聞かれ、返事が翌日になる</p>
+  <figure><img src="../images/01-1.png" alt="お客さんがスマホで選ぶと、金額の幅（税込）が出る" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">スマホで選ぶと、その場で金額の幅が出る。現地調査の申し込みも画面から</p><div><p class="eff"><b>年約40時間・約8万円分</b><a class="webok" href="../web.html">WEB管理可能</a><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/xjfs_oFX_Rw" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s02" aria-labelledby="h02"><div class="wrap">
+  <p class="tag">C02　<b id="h02">お問い合わせの記録と通知</b></p>
+  <p class="now">問い合わせを、メールや紙から台帳に書き写している</p>
+  <figure><img src="../images/02-1.png" alt="WEB のフォームから送ると、台帳の「受付」に1行入る" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">台帳に自動で1行入り、担当者に通知。お客さんに自動返信</p><div><p class="eff"><b>年約22時間・約4.4万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s03" aria-labelledby="h03"><div class="wrap">
+  <p class="tag">C03　<b id="h03">正式な見積書</b></p>
+  <p class="now">見積書を、前の Excel をコピーして打ち直している</p>
+  <figure><img src="../images/03-1.png" alt="品目を選んで数量を入れる「見積の入力」" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">品目を選び、合計・版は自動。1件15分</p><div><p class="eff"><b>年約90時間・約18万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s04" aria-labelledby="h04"><div class="wrap">
+  <p class="tag">C04　<b id="h04">工程表とカレンダー</b></p>
+  <p class="now">職人さんに、夕方1人ずつ電話で予定を伝えている</p>
+  <figure><img src="../images/04-1.png" alt="「予定」を1行入れてカレンダーに反映する" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">カレンダーに反映すると、前日にメールが自動で届く。工程表は PDF に</p><div><p class="eff"><b>年約48時間・約9.6万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s05" aria-labelledby="h05"><div class="wrap">
+  <p class="tag">C05　<b id="h05">現場の写真と書類</b></p>
+  <p class="now">LINE で届いた現場の写真を、手でフォルダに分けている</p>
+  <figure><img src="../images/05-1.png" alt="スマホで現場と区分を選んで写真を送る" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">送るだけで現場のフォルダに入る。報告書は印を付けて1通5分</p><div><p class="eff"><b>年約110時間・約22万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="s07" aria-labelledby="h07"><div class="wrap">
+  <p class="tag">C07　<b id="h07">請求書の自動作成</b></p>
+  <p class="now">月末に、売上の表から請求書を1通ずつ作っている</p>
+  <figure><img src="../images/07-1.png" alt="対象の売上を顧客ごとにまとめた確認の画面" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">顧客ごとの請求書の PDF とメールの下書きができる。確認して送るだけ（5分）。請求した売上には番号が付き、二重の請求にならない</p><div><p class="eff"><b>年約35時間・約7万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section><section class="story" id="sX01" aria-labelledby="hX01"><div class="wrap">
+  <p class="tag">X01　<b id="hX01">見積書・納品書・請求書（Excel）</b></p>
+  <p class="now">見積書・納品書・請求書を、別々に打ち直している</p>
+  <figure><img src="../images/X01-1.png" alt="動画の場面：ボタンで、見積書の PDF ができる" width="1920" height="1080" loading="lazy"></figure>
+  <div class="after"><p class="big">見積から納品書、月ごとの請求書が、同じ Excel でつながる。税率ごとの合計と消費税（切り捨て）は自動</p><div><p class="eff"><b>年約215時間・約43万円分</b><small>年間の削減（試算）</small></p><div class="go"><a href="https://youtu.be/3ar2R-4wTmQ" target="_blank" rel="noopener">動画で見る</a></div></div></div>
+</div></section>
+<section class="close" id="contact"><div class="wrap">
+  <h2>次は、あなたの<br>「今」を聞かせてください。</h2>
+  <p>ご相談は無料です。今の作業をうかがい、自動化できるところをご提案します。ランサーズまたはココナラのメッセージからお送りください。お返事は、平日は翌日まで、土日は月曜までにします。</p>
+  <a class="btn a" href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズで相談する</a><a class="btn b" href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラで相談する</a>
+</div></section>
+<div class="wrap"><footer>しくみ工房　｜　<a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></footer></div>
+</body>
+</html>

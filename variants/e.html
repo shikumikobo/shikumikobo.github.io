@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>しくみ工房｜小さく始めて、WEB アプリへ</title>
+<meta name="description" content="スプレッドシート1つから、スマホで回る WEB アプリになるまでの道のり。架空の工務店を例にした段階の例です。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Maru+Gothic:wght@700;900&display=swap">
+<style>
+:root { --bg:#FFFFFF; --soft:#F1F5F9; --ink:#1F3A5F; --text:#1E2329; --sub:#5A6470; --line:#CBD5E1; --road:#94A3B8; --goal:#B45F0C; --goal-soft:#FBEFE3;
+  --display:"Zen Maru Gothic","BIZ UDPGothic",sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12161B; --soft:#1A2028; --ink:#A9C2E3; --text:#E8EAED; --sub:#9AA5B1; --line:#334050; --road:#56657A; --goal:#F0A25A; --goal-soft:#2A2118; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:"BIZ UDPGothic","Yu Gothic",sans-serif; line-height:1.8; }
+h1, h2, h3, p, li { word-break:auto-phrase; }
+h1, h2, h3, .brand, .stage .n, .chip b { font-family:var(--display); }
+a { color:inherit; }
+a:focus-visible { outline:3px solid var(--goal); outline-offset:3px; }
+.wrap { max-width:1000px; margin:0 auto; padding:0 16px; }
+.top { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+.brand { display:flex; gap:10px; align-items:center; font-weight:700; font-size:1.15rem; color:var(--ink); text-decoration:none; }
+.brand img { width:36px; height:36px; border-radius:50%; }
+.top a.link { color:var(--ink); font-weight:700; }
+.open { padding:48px 0 32px; }
+.open h1 { font-size:clamp(2.1rem, 5.6vw, 3.8rem); font-weight:900; line-height:1.25; color:var(--ink); margin:0 0 20px; }
+.open p { color:var(--sub); font-size:1.08rem; max-width:34em; margin:0 0 24px; }
+.chips { display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0; }
+.chip { padding:8px 16px; border-radius:999px; background:var(--soft); color:var(--text); font-size:.95rem; }
+.chip b { color:var(--ink); font-size:1.1rem; margin:0 .15em; }
+.chip.goal { background:var(--goal-soft); }
+.chip.goal b { color:var(--goal); }
+.road { list-style:none; margin:24px 0 0; padding:0; position:relative; }
+.road::before { content:""; position:absolute; left:27px; top:0; bottom:0; width:6px; border-radius:3px;
+  background:linear-gradient(var(--road) 0 62%, var(--goal) 62% 100%); }
+.stage { position:relative; padding:0 0 48px 84px; }
+.stage .n { position:absolute; left:0; top:0; width:60px; height:60px; border-radius:50%; background:var(--bg); border:5px solid var(--road); color:var(--ink); display:grid; place-items:center; font-size:1.5rem; font-weight:900; }
+.stage.now .n { font-size:1.05rem; }
+.stage.web .n { border-color:var(--goal); background:var(--goal); color:#fff; }
+@media (prefers-color-scheme: dark) { .stage.web .n { color:#12161B; } }
+.stage h2 { font-size:clamp(1.35rem, 3vw, 1.75rem); color:var(--ink); margin:8px 0 4px; line-height:1.4; }
+.stage .lead { margin:0 0 14px; color:var(--sub); max-width:38em; }
+.box { background:var(--soft); border-radius:14px; padding:18px 20px; }
+.stage.web .box { background:var(--goal-soft); border:2px solid var(--goal); }
+.facts { display:flex; flex-wrap:wrap; gap:6px 28px; margin:0 0 12px; }
+.facts span { font-size:.92rem; color:var(--sub); }
+.facts b { display:block; font-family:var(--display); font-size:1.3rem; color:var(--ink); line-height:1.4; }
+.stage.web .facts b { color:var(--goal); }
+.items { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; }
+.items li { background:var(--bg); border-radius:10px; padding:10px 12px; font-size:.92rem; }
+.items small { display:block; color:var(--sub); font-weight:700; }
+.items a { color:var(--ink); font-weight:700; }
+.items .e { display:block; color:var(--sub); font-size:.85rem; }
+.pains { margin:0; padding-left:1.2em; color:var(--text); }
+.pains li { margin:2px 0; }
+.side { margin:12px 0 0; font-size:.92rem; color:var(--sub); }
+.side a { color:var(--ink); font-weight:700; }
+.note { color:var(--sub); font-size:.88rem; margin:0 0 8px; }
+.close { background:var(--ink); color:#fff; border-radius:18px; padding:48px 40px; margin:16px 0 40px; }
+@media (prefers-color-scheme: dark) { .close { background:#1F3A5F; } }
+.close h2 { font-size:clamp(1.6rem, 3.8vw, 2.4rem); margin:0 0 10px; line-height:1.35; }
+.close p { color:#C9D6E6; margin:0 0 24px; max-width:34em; }
+.close .btn { display:inline-block; padding:13px 24px; border-radius:999px; font-weight:700; text-decoration:none; margin:0 10px 10px 0; }
+.close .btn.a { background:#F0A25A; color:#13253D; }
+.close .btn.b { border:2px solid #fff; color:#fff; }
+footer { padding:0 0 40px; color:var(--sub); font-size:.9rem; }
+footer a { color:var(--ink); }
+@media (max-width:760px) {
+  .road::before { left:21px; }
+  .stage { padding-left:62px; }
+  .stage .n { width:48px; height:48px; font-size:1.2rem; border-width:4px; }
+  .stage.now .n { font-size:.9rem; }
+  .items { grid-template-columns:1fr; }
+  .close { padding:36px 22px; }
+  .close .btn { display:block; text-align:center; margin-right:0; }
+}
+
+.lp-strip { margin:0; padding:7px 16px; background:#1F3A5F; color:#E3E9F0; font:13px/1.6 "BIZ UDPGothic","Yu Gothic",sans-serif; text-align:center; }
+.lp-strip a { color:#FFFFFF; font-weight:700; margin-left:.8em; }
+</style>
+
+</head>
+<body>
+<p class="lp-strip">しくみ工房が作った LP の例です（データは架空です）。<a href="../">実績のページに戻る</a></p>
+<div class="wrap">
+<div class="top"><a class="brand" href="#"><img src="../images/icon.png" alt="" width="36" height="36">しくみ工房</a><a class="link" href="#contact">相談する</a></div>
+<header class="open">
+  <h1>小さく始めて、<br>WEB アプリまで育てる。</h1>
+  <p>いきなり大きなシステムは要りません。従業員10人ほどの架空の工務店を例に、スプレッドシート1つから、スマホで回る WEB アプリになるまでの道のりを描きました。</p>
+  <ul class="chips"><li class="chip">はじめは<b>2</b>万円から</li><li class="chip goal">WEB アプリは<b>30</b>万円から</li><li class="chip">どの段階からでも始められます</li></ul>
+</header>
+
+<ol class="road">
+  <li class="stage now"><span class="n">今</span>
+    <h2>電話・LINE・紙・Excel が、ばらばら</h2>
+    <p class="lead">情報があちこちにあり、書き写しと連絡に時間が消えていきます。</p>
+    <div class="box"><ul class="pains"><li>概算の金額を電話・メールで聞かれ、返事が翌日になる</li><li>見積書を、前の Excel をコピーして打ち直している</li><li>シートを共有すると、金額や社内のメモまで見えてしまう</li></ul></div>
+  </li>
+  <li class="stage"><span class="n">1</span>
+    <h2>困りごと1つを、自動に</h2>
+    <p class="lead">今お使いの Google スプレッドシートで、受付から見積までを自動にします。まずは1つだけでも始められます。</p>
+    <div class="box">
+      <div class="facts"><span><b>1つ2万円から</b>3つのセットは6万円</span><span><b>約152時間・約30.4万円分</b>この段階の年間の削減（試算）</span></div>
+      <ul class="items"><li><small>C01</small>概算見積（WEB）<span class="e">年約40時間・約8万円分（試算）</span><a href="https://youtu.be/xjfs_oFX_Rw" target="_blank" rel="noopener">動画で見る</a></li><li><small>C02</small>お問い合わせの記録と通知<span class="e">年約22時間・約4.4万円分（試算）</span><a href="https://youtu.be/VqnUljA0n3E" target="_blank" rel="noopener">動画で見る</a></li><li><small>C03</small>正式な見積書<span class="e">年約90時間・約18万円分（試算）</span><a href="https://youtu.be/_-2qiz1TLeg" target="_blank" rel="noopener">動画で見る</a></li></ul>
+      <p class="side">社内が Excel 中心なら、<a href="https://youtu.be/3ar2R-4wTmQ" target="_blank" rel="noopener">Excel の見積・納品・請求書（X01）</a>から始めることもできます。</p>
+    </div>
+  </li>
+  <li class="stage"><span class="n">2</span>
+    <h2>現場とお金に、広げる</h2>
+    <p class="lead">同じ台帳に、工程・現場の写真・請求を足していきます。データが1か所にたまり始めます。</p>
+    <div class="box">
+      <div class="facts"><span><b>1つ2万円から</b>後から足すと1つ5,000円引き</span><span><b>約193時間・約38.6万円分</b>この段階の年間の削減（試算）</span></div>
+      <ul class="items"><li><small>C04</small>工程表とカレンダー<span class="e">年約48時間・約9.6万円分（試算）</span><a href="https://youtu.be/U8hm_w8dHZQ" target="_blank" rel="noopener">動画で見る</a></li><li><small>C05</small>現場の写真と書類<span class="e">年約110時間・約22万円分（試算）</span><a href="https://youtu.be/v-evSr0hZZM" target="_blank" rel="noopener">動画で見る</a></li><li><small>C07</small>請求書の自動作成<span class="e">年約35時間・約7万円分（試算）</span><a href="https://youtu.be/rY_ovs0BVUg" target="_blank" rel="noopener">動画で見る</a></li></ul>
+    </div>
+  </li>
+  <li class="stage web"><span class="n">3</span>
+    <h2>WEB アプリに移す</h2>
+    <p class="lead">人が増え、職人やお客さんに見せる範囲を分けたくなったら。見本の台帳は WEB アプリと列をそろえてあり、データを移しやすい作りです。</p>
+    <div class="box">
+      <div class="facts"><span><b>30万円から</b>中身に合わせてお見積りします</span><span><b>約150時間・約30万円分</b>現場管理アプリの年間の削減（試算）</span></div>
+      <ul class="items" style="grid-template-columns:1fr"><li><small>W01</small>現場管理アプリ<span class="e">年約150時間・約30万円分（試算）</span><a href="https://site-manager.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a></li></ul>
+      <p class="side"><a href="../web.html">WEB で管理するよさ</a>を、別のページで説明しています。</p>
+    </div>
+  </li>
+  <li class="stage web"><span class="n">4</span>
+    <h2>スマホと、お客さんの窓口へ</h2>
+    <p class="lead">外回りや現場でスマホから使い、お客さんには進み具合の専用ページを。アプリストアを通さず、ホーム画面に入れられます。</p>
+    <div class="box">
+      <p class="note">サロン・教室なら、予約アプリから始める例もあります。</p>
+      <ul class="items" style="grid-template-columns:1fr"><li><small>W02</small>予約と顧客管理アプリ<span class="e">年約220時間・約44万円分（試算）</span><a href="https://booking-crm.shikumikobo.com/" target="_blank" rel="noopener">ブラウザで試す</a></li></ul>
+      <p class="side"><a href="../pwa.html">スマホのアプリとして使う</a>（入れ方と、使う場面）</p>
+    </div>
+  </li>
+</ol>
+
+<section class="close" id="contact">
+  <h2>御社は、いまどの段階ですか</h2>
+  <p>今の作業をうかがい、どこから始めるとよいかをご提案します。ご相談は無料です。ランサーズまたはココナラのメッセージからお送りください。お返事は、平日は翌日まで、土日は月曜までにします。</p>
+  <a class="btn a" href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズで相談する</a><a class="btn b" href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラで相談する</a>
+</section>
+<footer>しくみ工房　｜　<a href="https://www.lancers.jp/profile/shikumikobo" target="_blank" rel="noopener">ランサーズ</a>　／　<a href="https://coconala.com/users/6388117" target="_blank" rel="noopener">ココナラ</a>　／　<a href="https://www.youtube.com/@shikumikobo" target="_blank" rel="noopener">YouTube</a>　／　<a href="https://note.com/shikumikobo" target="_blank" rel="noopener">note</a>　／　<a href="https://x.com/shikumikobo" target="_blank" rel="noopener">X</a></footer>
+</div>
+</body>
+</html>
