@@ -287,6 +287,9 @@ footer a { color:var(--ink); }
 .article h3 { font-size:1.15rem; color:var(--ink); margin:24px 0 6px; }
 .article p, .article li { line-height:1.95; }
 .article ul { padding-left:1.4em; }
+.article figure { margin:20px 0 24px; }
+.article figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
+.article figcaption { color:var(--sub); font-size:.9rem; margin-top:6px; }
 .alist { list-style:none; margin:0; padding:0; }
 .alist li { padding:16px 0; border-bottom:1px solid var(--line); }
 .alist a { font-weight:700; font-size:1.1rem; }
@@ -329,6 +332,7 @@ footer a { color:var(--ink); }
 <p>小さなことですが、実際に使われると、この順番の違いがトラブルを分けます。</p>
 <h2>ほかに作ったもの</h2>
 <p>見本では、お客さん側とお店側の画面を、上の切り替えで行き来できます。</p>
+<figure><img src="images/W02-1.png" alt="お客さん側：縦が時間、横が担当者の表。空いているところを押すと、時間ぶんが選ばれます（見本の画面・架空のデータ）" width="1920" height="1080" loading="lazy"><figcaption>お客さん側：縦が時間、横が担当者の表。空いているところを押すと、時間ぶんが選ばれます（見本の画面・架空のデータ）</figcaption></figure>
 <p><strong>お客さん側</strong></p>
 <ul>
 <li>メニューを選ぶと、月のカレンダーが出る。空きのある日だけが押せる</li>
@@ -343,6 +347,7 @@ footer a { color:var(--ink); }
 <li>来店済み・無断欠席を記録し、お客さんのカルテの履歴に残す。お店だけが見るメモも残せる</li>
 <li>前回の来店から日が経ったお客さんの一覧と、連絡の文の作成</li>
 </ul>
+<figure><img src="images/W02-2.png" alt="お店側：予約表を見ながら、電話で受けた予約を登録します（見本の画面・架空のデータ）" width="1920" height="1080" loading="lazy"><figcaption>お店側：予約表を見ながら、電話で受けた予約を登録します（見本の画面・架空のデータ）</figcaption></figure>
 <p>メニューや教室の開催日、担当者は、お店の人が自分で足したり直したりできます。スマホの画面もあり、ホーム画面に入れて、アプリのように使うこともできます。</p>
 <h2>どれくらい手間が減るか</h2>
 <p>スタッフ2人で、予約が月120件のお店を想定します。予約の受け付け（電話・LINE の往復と、台帳への書き写し）に1件5分かかるとすると、年に約120時間です。日時の変更やキャンセルの電話が月20件で1件10分なら、年に約40時間です（架空のお店の想定での試算です。件数はお店ごとに変わります）。</p>

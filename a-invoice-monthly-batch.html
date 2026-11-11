@@ -287,6 +287,9 @@ footer a { color:var(--ink); }
 .article h3 { font-size:1.15rem; color:var(--ink); margin:24px 0 6px; }
 .article p, .article li { line-height:1.95; }
 .article ul { padding-left:1.4em; }
+.article figure { margin:20px 0 24px; }
+.article figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
+.article figcaption { color:var(--sub); font-size:.9rem; margin-top:6px; }
 .alist { list-style:none; margin:0; padding:0; }
 .alist li { padding:16px 0; border-bottom:1px solid var(--line); }
 .alist a { font-weight:700; font-size:1.1rem; }
@@ -329,6 +332,8 @@ footer a { color:var(--ink); }
 <li>別のボタンで、顧客ごとに PDF を付けたメールの<strong>下書き</strong>を作る。送るのは、人が中身を確かめてから</li>
 <li>すべての処理を、日時・請求番号・金額・結果とともにログに残す</li>
 </ul>
+<figure><img src="images/07-1.png" alt="月を入れると、顧客ごとの枚数と金額の一覧が出る。ここで確かめてから進みます（見本の画面・架空のデータ）" width="1920" height="1080" loading="lazy"><figcaption>月を入れると、顧客ごとの枚数と金額の一覧が出る。ここで確かめてから進みます（見本の画面・架空のデータ）</figcaption></figure>
+<figure><img src="images/07-2.png" alt="請求書の PDF。金額は台帳から入るので、転記はいりません（見本の画面・架空のデータ）" width="1920" height="1080" loading="lazy"><figcaption>請求書の PDF。金額は台帳から入るので、転記はいりません（見本の画面・架空のデータ）</figcaption></figure>
 <p>1か月の作業は、3時間から5分になる想定です。月に約20件なら、年に約35時間、時給2,000円で約7万円分の手間にあたります（架空のデータでの試算です。実際の件数と時間で計算し直します）。</p>
 <h2>気をつけたこと</h2>
 <h3>二重の請求は、請求番号で防ぐ</h3>

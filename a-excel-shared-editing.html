@@ -287,6 +287,9 @@ footer a { color:var(--ink); }
 .article h3 { font-size:1.15rem; color:var(--ink); margin:24px 0 6px; }
 .article p, .article li { line-height:1.95; }
 .article ul { padding-left:1.4em; }
+.article figure { margin:20px 0 24px; }
+.article figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
+.article figcaption { color:var(--sub); font-size:.9rem; margin-top:6px; }
 .alist { list-style:none; margin:0; padding:0; }
 .alist li { padding:16px 0; border-bottom:1px solid var(--line); }
 .alist a { font-weight:700; font-size:1.1rem; }
@@ -343,9 +346,12 @@ footer a { color:var(--ink); }
 <p>実績のページに、WEB アプリの見本が2つあります（データは、どちらも架空です）。</p>
 <h3>現場管理アプリ（工務店）</h3>
 <p>入る人によって、見え方が変わります。職人には担当の現場だけが見えて、金額は見えません。お客さんには、許可された現場の進み具合と、共有されたファイルだけが見えます。</p>
+<figure><img src="images/W01-1.png" alt="お客さんの画面：許可された自分の現場の進み具合と予定だけが見えます（見本の画面・架空のデータ）" width="1280" height="800" loading="lazy"><figcaption>お客さんの画面：許可された自分の現場の進み具合と予定だけが見えます（見本の画面・架空のデータ）</figcaption></figure>
+<figure><img src="images/W01-2.png" alt="社長の画面：すべての現場と、状況・担当・期日で絞り込む一覧が見えます（見本の画面・架空のデータ）" width="1280" height="800" loading="lazy"><figcaption>社長の画面：すべての現場と、状況・担当・期日で絞り込む一覧が見えます（見本の画面・架空のデータ）</figcaption></figure>
 <p>大事なのは、「だれが何を見られるか」を、画面ではなく、データベースの側で守っていることです。画面で隠すだけだと、ブラウザの機能で中身を見られてしまうことがあります。データベースが返さなければ、画面にも届きません。変更の履歴（だれが・いつ・何を）も残ります。</p>
 <h3>予約と顧客管理アプリ（サロン・教室）</h3>
 <p>同じ担当者の時間の重なりや、教室の定員を、データベースの側で守っています。2人が同時に同じ枠を押しても、片方しか入りません。予約の変更は、新しい枠を先に取ってから、元の予約を空けるので、変更に失敗しても、元の予約は残ります。</p>
+<figure><img src="images/W02-1.png" alt="予約アプリ：同じ時間の枠は、2人が同時に押しても片方しか入りません（見本の画面・架空のデータ）" width="1920" height="1080" loading="lazy"><figcaption>予約アプリ：同じ時間の枠は、2人が同時に押しても片方しか入りません（見本の画面・架空のデータ）</figcaption></figure>
 <h2>移すときの考え方</h2>
 <p>WEB アプリに移すと決めても、全部を一度に移す必要はありません。まず、いちばん困っている部分だけを移します。たとえば、予約だけ、現場の進み具合だけです。ほかの Excel の集計や書類づくりは、そのまま使い続けられます。</p>
 <p>Excel を使い続けたい会社に向けた、Excel のまま自動にする方法もあります。どちらがよいかは、人数・件数・見せる範囲によります。</p>
