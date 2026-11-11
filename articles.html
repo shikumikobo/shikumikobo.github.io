@@ -290,10 +290,15 @@ footer a { color:var(--ink); }
 .article figure { margin:20px 0 24px; }
 .article figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
 .article figcaption { color:var(--sub); font-size:.9rem; margin-top:6px; }
-.alist { list-style:none; margin:0; padding:0; }
-.alist li { padding:16px 0; border-bottom:1px solid var(--line); }
-.alist a { font-weight:700; font-size:1.1rem; }
-.alist small { display:block; color:var(--sub); margin-top:4px; }
+.alist { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px 20px; }
+.alist a { display:block; text-decoration:none; color:var(--text); }
+.alist .th { display:block; aspect-ratio:16/9; overflow:hidden; border-radius:8px; border:1px solid var(--line); background:var(--tint); }
+.alist .th img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.alist .tt { display:block; font-weight:700; line-height:1.5; margin-top:10px; color:var(--ink); }
+.alist a:hover .tt { text-decoration:underline; }
+.alist small { display:block; white-space:normal; overflow-wrap:anywhere; color:var(--sub); margin-top:4px; font-size:.88rem; }
+@media (max-width:860px) { .alist { grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:560px) { .alist { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -307,7 +312,7 @@ footer a { color:var(--ink); }
   <p class="crumb"><a href="./">実績のページ</a>　＞　解説記事</p>
   <h1><span>小さな会社の手作業の、</span><span>困りごと別の解説。</span></h1>
 </header>
-<section class="block"><ul class="alist"><li><a href="a-invoice-monthly-batch.html">月末の請求書を、顧客ごとにまとめて作りたい。ボタン1つで PDF とメールの下書きまで（スプレッドシートの例）</a><small>2026-11-11　｜　見積・請求のお金の書類</small></li><li><a href="a-excel-shared-editing.html">Excel を何人かで使うと、上書きされる・壊れる。共有の工夫と、WEB アプリに移す目安</a><small>2026-11-11　｜　Excel の限界と WEB 化</small></li><li><a href="a-double-booking-prevention.html">電話・LINE・メモの予約の、二重の受付を防ぎたい。予約アプリでの考え方（サロン・教室の例）</a><small>2026-11-11　｜　受付・予約・お客さんの情報</small></li></ul></section>
+<section class="block"><ul class="alist"><li><a href="a-invoice-monthly-batch.html"><span class="th"><img src="images/07-1.png" alt="" width="1920" height="1080"></span><span class="tt">月末の請求書を、顧客ごとにまとめて作りたい。ボタン1つで PDF とメールの下書きまで（スプレッドシートの例）</span><small>2026-11-11　｜　見積・請求のお金の書類</small></a></li><li><a href="a-excel-shared-editing.html"><span class="th"><img src="images/W01-2.png" alt="" width="1280" height="800"></span><span class="tt">Excel を何人かで使うと、上書きされる・壊れる。共有の工夫と、WEB アプリに移す目安</span><small>2026-11-11　｜　Excel の限界と WEB 化</small></a></li><li><a href="a-double-booking-prevention.html"><span class="th"><img src="images/W02-1.png" alt="" width="1920" height="1080"></span><span class="tt">電話・LINE・メモの予約の、二重の受付を防ぎたい。予約アプリでの考え方（サロン・教室の例）</span><small>2026-11-11　｜　受付・予約・お客さんの情報</small></a></li></ul></section>
 <section class="cta" id="contact" aria-labelledby="contact-h">
   <h2 id="contact-h">御社の場合を、一緒に書き出します</h2>
   <p>今の作業をうかがい、スプレッドシートで足りるか、WEB アプリにするとよいかをご提案します。ご相談は無料です。フォームから、今の作業をお知らせください。お返事は、平日は翌日まで、土日は月曜までにします。</p>

@@ -290,10 +290,15 @@ footer a { color:var(--ink); }
 .article figure { margin:20px 0 24px; }
 .article figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:8px; }
 .article figcaption { color:var(--sub); font-size:.9rem; margin-top:6px; }
-.alist { list-style:none; margin:0; padding:0; }
-.alist li { padding:16px 0; border-bottom:1px solid var(--line); }
-.alist a { font-weight:700; font-size:1.1rem; }
-.alist small { display:block; color:var(--sub); margin-top:4px; }
+.alist { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px 20px; }
+.alist a { display:block; text-decoration:none; color:var(--text); }
+.alist .th { display:block; aspect-ratio:16/9; overflow:hidden; border-radius:8px; border:1px solid var(--line); background:var(--tint); }
+.alist .th img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.alist .tt { display:block; font-weight:700; line-height:1.5; margin-top:10px; color:var(--ink); }
+.alist a:hover .tt { text-decoration:underline; }
+.alist small { display:block; white-space:normal; overflow-wrap:anywhere; color:var(--sub); margin-top:4px; font-size:.88rem; }
+@media (max-width:860px) { .alist { grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:560px) { .alist { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
